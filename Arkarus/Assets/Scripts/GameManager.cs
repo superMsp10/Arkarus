@@ -14,7 +14,14 @@ public class GameManager : MonoBehaviour
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
     public GameObject scanGround;
+    public Transform floorCollider;
     private bool m_IsQuitting = false;
+    bool setupBase = true;
+    public Camera FirstPersonCamera;
+
+    public GameObject shootObject;
+    public float shootPower = 10f;
+    Vector2 startPos, endPos;
 
     // Use this for initialization
     void Start()
@@ -25,8 +32,56 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _UpdateApplicationLifecycle();
+        //_UpdateApplicationLifecycle();
 
+        //if (setupBase)
+        //{
+        //    //UpdateARMeshes();
+        //}
+        //else
+        //{
+            UpdateShoot();
+        //}
+    }
+
+    void UpdateShoot()
+    {
+        Touch touch;
+        if (Input.touchCount < 1)
+        {
+            return;
+        }
+
+        touch = Input.GetTouch(0);
+        Vector2 center = new Vector2(Screen.width / 2, Screen.height / 2);
+
+        if (touch.phase == TouchPhase.Began)
+        {
+            startPos = touch.position;
+        }
+        if (touch.phase == TouchPhase.Ended)
+        {
+            endPos = touch.position;
+
+            Vector3 diff = (endPos - startPos);
+            float distance = Vector2.Distance(diff , center);
+            if (diff.x > 0 && diff.y < 0)
+            {
+                Debug.Log(distance);
+
+                Vector3 force = FirstPersonCamera.transform.forward.normalized * shootPower * distance;
+                GameObject g = Instantiate(shootObject, FirstPersonCamera.transform.position + FirstPersonCamera.transform.forward / 4, Quaternion.identity, null);
+                g.transform.parent = transform;
+                g.GetComponent<Rigidbody>().AddForce(force, ForceMode.Force);
+            }
+
+           
+
+        }
+    }
+
+    void UpdateARMeshes()
+    {
         // Hide snackbar when currently tracking at least one plane.
         Session.GetTrackables<DetectedPlane>(m_AllPlanes);
         bool showSearchingUI = true;
@@ -35,11 +90,27 @@ public class GameManager : MonoBehaviour
             if (m_AllPlanes[i].TrackingState == TrackingState.Tracking)
             {
                 showSearchingUI = false;
+                if (m_AllPlanes[i].CenterPose.up == Vector3.up)
+                {
+                    if (m_AllPlanes[i].CenterPose.position.y < floorCollider.position.y)
+                    {
+                        floorCollider.position = new Vector3(0, m_AllPlanes[i].CenterPose.position.y, 0);
+                    }
+                }
                 break;
             }
         }
+        if (!showSearchingUI)
+        {
+            scanGround.SetActive(false);
+            SetupBase();
+        }
+    }
 
-        scanGround.SetActive(showSearchingUI);
+    void SetupBase()
+    {
+        setupBase = false;
+
     }
 
     private void _UpdateApplicationLifecycle()
