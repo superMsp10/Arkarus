@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        InvokeRepeating("SpawnGhosts", 0f, 30f);
+        InvokeRepeating("SpawnGhosts", 0f, 20f);
     }
 
     // Update is called once per frame

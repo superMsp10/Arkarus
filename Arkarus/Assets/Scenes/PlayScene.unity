@@ -167,7 +167,7 @@ MonoBehaviour:
   shootPower: 0.01
   ghostPrefab: {fileID: 1438457169769370, guid: c3c0e872ccef0384fbe4ab3c530c7cbe,
     type: 2}
-  spawnRange: 10
+  spawnRange: 2
   ghostCount: 0
 --- !u!1 &463222027
 GameObject:
