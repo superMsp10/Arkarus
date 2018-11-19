@@ -7,10 +7,9 @@ using GoogleARCore;
 using Input = GoogleARCore.InstantPreviewInput;
 #endif
 
-
-
 public class GameManager : MonoBehaviour
 {
+    public static GameManager gameManager;
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
     public GameObject scanGround;
@@ -19,14 +18,24 @@ public class GameManager : MonoBehaviour
     bool setupBase = true;
     public Camera FirstPersonCamera;
 
-    public GameObject shootObject;
+    public GameObject shootObjectPrefab;
+    public Transform shootPos;
     public float shootPower = 10f;
     Vector2 startPos, endPos;
+
+    public GameObject ghostPrefab;
+    public float spawnRange;
+    public int ghostCount;
+
+    private void Awake()
+    {
+        gameManager = this;
+    }
 
     // Use this for initialization
     void Start()
     {
-
+        InvokeRepeating("SpawnGhosts", 0f, 30f);
     }
 
     // Update is called once per frame
@@ -42,6 +51,15 @@ public class GameManager : MonoBehaviour
         //{
             UpdateShoot();
         //}
+    }
+
+    public void SpawnGhosts()
+    {
+        if(ghostCount < 10)
+        {
+            Instantiate(ghostPrefab, Random.onUnitSphere * spawnRange, Quaternion.identity);
+            ghostCount++;
+        }
     }
 
     void UpdateShoot()
@@ -69,11 +87,13 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log(distance);
 
-                Vector3 force = FirstPersonCamera.transform.forward.normalized * shootPower * distance;
-                GameObject g = Instantiate(shootObject, FirstPersonCamera.transform.position + FirstPersonCamera.transform.forward / 4, Quaternion.identity, null);
+                Vector3 force = shootPos.forward * shootPower * distance;
+                GameObject g = Instantiate(shootObjectPrefab, shootPos.position, Quaternion.identity, null);
                 g.transform.parent = transform;
+                g.transform.forward = shootPos.forward;
                 g.GetComponent<Rigidbody>().AddForce(force, ForceMode.Force);
             }
+
 
            
 

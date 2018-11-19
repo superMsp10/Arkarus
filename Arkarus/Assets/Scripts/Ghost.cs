@@ -23,15 +23,15 @@ public class Ghost : MonoBehaviour
     {
         while (true)
         {
-            finalPos = Vector3.MoveTowards(transform.position, Random.onUnitSphere, 1f);
+            Vector3 deltaPlayer = GameManager.gameManager.FirstPersonCamera.transform.position - transform.position;
+            finalPos = Vector3.MoveTowards(transform.position, Random.onUnitSphere + deltaPlayer, 1f);
             yield return new WaitForSeconds(moveTime);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Instantiate(this, transform.position, transform.rotation);
-        Instantiate(this, transform.position, transform.rotation);
+        GameManager.gameManager.ghostCount--;
         Destroy(gameObject);
     }
 
