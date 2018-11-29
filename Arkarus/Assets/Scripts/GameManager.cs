@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject ghostPrefab;
     public float spawnRange;
-    public int ghostCount;
+    public int ghostCount, maxGhostCount, ghostSpawnRate;
 
     private void Awake()
     {
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        InvokeRepeating("SpawnGhosts", 0f, 20f);
+        InvokeRepeating("SpawnGhosts", 0f, ghostSpawnRate);
     }
 
     // Update is called once per frame
@@ -49,13 +49,13 @@ public class GameManager : MonoBehaviour
         //}
         //else
         //{
-            UpdateShoot();
+        UpdateShoot();
         //}
     }
 
     public void SpawnGhosts()
     {
-        if(ghostCount < 10)
+        if (ghostCount < maxGhostCount)
         {
             Instantiate(ghostPrefab, Random.onUnitSphere * spawnRange, Quaternion.identity);
             ghostCount++;
@@ -80,14 +80,16 @@ public class GameManager : MonoBehaviour
         if (touch.phase == TouchPhase.Ended)
         {
             endPos = touch.position;
-
             Vector3 diff = (endPos - startPos);
-            float distance = Vector2.Distance(diff , center);
-            if (diff.x > 0 && diff.y < 0)
-            {
-                Debug.Log(distance);
+            float screenPercent = new Vector2(diff.x / Screen.width, diff.y / Screen.height).magnitude;
 
-                Vector3 force = shootPos.forward * shootPower * distance;
+            Debug.Log("screenPercent " + screenPercent * 100);
+
+            if (diff.x > 0 && diff.y < 0 && screenPercent > .2)
+            {
+                Vector3 force = shootPos.forward.normalized * screenPercent * shootPower;
+
+                Debug.Log("Force: " + force);
                 GameObject g = Instantiate(shootObjectPrefab, shootPos.position, Quaternion.identity, null);
                 g.transform.parent = transform;
                 g.transform.forward = shootPos.forward;
@@ -95,7 +97,7 @@ public class GameManager : MonoBehaviour
             }
 
 
-           
+
 
         }
     }
