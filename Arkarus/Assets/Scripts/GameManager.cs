@@ -3,29 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using GoogleARCore;
 
-#if UNITY_EDITOR
-using Input = GoogleARCore.InstantPreviewInput;
-#endif
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
-    public GameObject scanGround;
-    public Transform floorCollider;
+    //public GameObject scanGround;
+    //public Transform floorCollider;
     private bool m_IsQuitting = false;
     bool setupBase = true;
     public Camera FirstPersonCamera;
-
-    public GameObject shootObjectPrefab;
-    public Transform shootPos;
-    public float shootPower = 10f;
-    Vector2 startPos, endPos;
-
-    public GameObject ghostPrefab;
-    public float spawnRange;
-    public int ghostCount, maxGhostCount, ghostSpawnRate;
 
     private void Awake()
     {
@@ -35,99 +22,42 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        InvokeRepeating("SpawnGhosts", 0f, ghostSpawnRate);
     }
 
     // Update is called once per frame
     void Update()
     {
         //_UpdateApplicationLifecycle();
-
-        //if (setupBase)
-        //{
-        //    //UpdateARMeshes();
-        //}
-        //else
-        //{
-        UpdateShoot();
-        //}
     }
 
-    public void SpawnGhosts()
-    {
-        if (ghostCount < maxGhostCount)
-        {
-            Instantiate(ghostPrefab, Random.onUnitSphere * spawnRange, Quaternion.identity);
-            ghostCount++;
-        }
-    }
-
-    void UpdateShoot()
-    {
-        Touch touch;
-        if (Input.touchCount < 1)
-        {
-            return;
-        }
-
-        touch = Input.GetTouch(0);
-        Vector2 center = new Vector2(Screen.width / 2, Screen.height / 2);
-
-        if (touch.phase == TouchPhase.Began)
-        {
-            startPos = touch.position;
-        }
-        if (touch.phase == TouchPhase.Ended)
-        {
-            endPos = touch.position;
-            Vector3 diff = (endPos - startPos);
-            float screenPercent = new Vector2(diff.x / Screen.width, diff.y / Screen.height).magnitude;
-
-            Debug.Log("screenPercent " + screenPercent * 100);
-
-            if (diff.x > 0 && diff.y < 0 && screenPercent > .2)
-            {
-                Vector3 force = shootPos.forward.normalized * screenPercent * shootPower;
-
-                Debug.Log("Force: " + force);
-                GameObject g = Instantiate(shootObjectPrefab, shootPos.position, Quaternion.identity, null);
-                g.transform.parent = transform;
-                g.transform.forward = shootPos.forward;
-                g.GetComponent<Rigidbody>().AddForce(force, ForceMode.Force);
-            }
 
 
-
-
-        }
-    }
-
-    void UpdateARMeshes()
-    {
-        // Hide snackbar when currently tracking at least one plane.
-        Session.GetTrackables<DetectedPlane>(m_AllPlanes);
-        bool showSearchingUI = true;
-        for (int i = 0; i < m_AllPlanes.Count; i++)
-        {
-            if (m_AllPlanes[i].TrackingState == TrackingState.Tracking)
-            {
-                showSearchingUI = false;
-                if (m_AllPlanes[i].CenterPose.up == Vector3.up)
-                {
-                    if (m_AllPlanes[i].CenterPose.position.y < floorCollider.position.y)
-                    {
-                        floorCollider.position = new Vector3(0, m_AllPlanes[i].CenterPose.position.y, 0);
-                    }
-                }
-                break;
-            }
-        }
-        if (!showSearchingUI)
-        {
-            scanGround.SetActive(false);
-            SetupBase();
-        }
-    }
+    //void UpdateARMeshes()
+    //{
+    //    // Hide snackbar when currently tracking at least one plane.
+    //    Session.GetTrackables<DetectedPlane>(m_AllPlanes);
+    //    bool showSearchingUI = true;
+    //    for (int i = 0; i < m_AllPlanes.Count; i++)
+    //    {
+    //        if (m_AllPlanes[i].TrackingState == TrackingState.Tracking)
+    //        {
+    //            showSearchingUI = false;
+    //            if (m_AllPlanes[i].CenterPose.up == Vector3.up)
+    //            {
+    //                if (m_AllPlanes[i].CenterPose.position.y < floorCollider.position.y)
+    //                {
+    //                    floorCollider.position = new Vector3(0, m_AllPlanes[i].CenterPose.position.y, 0);
+    //                }
+    //            }
+    //            break;
+    //        }
+    //    }
+    //    if (!showSearchingUI)
+    //    {
+    //        scanGround.SetActive(false);
+    //        SetupBase();
+    //    }
+    //}
 
     void SetupBase()
     {

@@ -2,11 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ghost : MonoBehaviour
+public class Ghost : MonoBehaviour, Poolable
 {
 
     Vector3 finalPos;
     public float moveTime = 1f, moveDistance = 2f;
+
+    GameObject Poolable.gameobject
+    {
+        get
+        {
+            return gameObject;
+        }
+    }
+
+    public Pooler thisPooler { get ; set ; }
+
     // Use this for initialization
     void Start()
     {
@@ -31,8 +42,7 @@ public class Ghost : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameManager.gameManager.ghostCount--;
-        Destroy(gameObject);
+        thisPooler.disposeObject(this);
     }
 
 
@@ -40,5 +50,12 @@ public class Ghost : MonoBehaviour
     {
         Vector3 x = Vector3.zero;
         transform.position = Vector3.SmoothDamp(transform.position, finalPos, ref x, moveTime / 2);
+    }
+
+    void Poolable.reset(bool on)
+    {
+        gameObject.SetActive(on);
+        if (on)
+            transform.rotation = Quaternion.identity;
     }
 }
