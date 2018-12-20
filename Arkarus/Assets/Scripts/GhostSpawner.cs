@@ -24,17 +24,42 @@ public class GhostSpawner : MonoBehaviour
         {
             GameObject g = ghostPooler.getObject();
             //Camera frustrum has 4 lines projecting out of the camera
-            // 1 --- 2
-            // |     |
-            // 3 --- 4
-            //Chose random line to start from
+            //      0
+            //   A --- B
+            // 3 |     | 1
+            //   C --- D
+            //      2
+            //Chose random point on a side to start from
             //Get direction using viewport point to world raycast
             //Frustrum destination = direction * random depth
             //Offset Direction: Difference between camera center position and frustrum destination normalized
             // Final position = frustrum destination + offset direciton * randomMagnitude
             float r_depth = Random.Range(spawnRangeMin, spawnRangeMax);
-            Vector2 r_corner = new Vector2(Random.Range(0, 2), Random.Range(0, 2));
-            Vector3 frustrumDest = fpCam.ViewportPointToRay(r_corner).direction * r_depth;
+            Vector2 pointOnViewportEdge = Vector2.zero;
+            int r_side = Random.Range(0, 4);
+            float r_sideMagnitude = Random.Range(0.0f, 1f);
+
+            switch (r_side)
+            {
+                case 0:
+                    pointOnViewportEdge = new Vector2(r_sideMagnitude, 0);
+                    break;
+                case 1:
+                    pointOnViewportEdge = new Vector2(1, r_sideMagnitude);
+                    break;
+                case 2:
+                    pointOnViewportEdge = new Vector2(r_sideMagnitude, 1);
+                    break;
+                case 3:
+                    pointOnViewportEdge = new Vector2(0, r_sideMagnitude);
+                    break;
+                default:
+                    pointOnViewportEdge = Vector2.zero;
+                    break;
+            }
+
+
+            Vector3 frustrumDest = fpCam.ViewportPointToRay(pointOnViewportEdge).direction * r_depth;
             Vector3 offset = (frustrumDest - fpCam.transform.forward * r_depth).normalized * frustrumDestOffest;
             g.transform.position = frustrumDest + offset;
         }
