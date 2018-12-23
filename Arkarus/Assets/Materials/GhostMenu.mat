@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ghost
-  m_Shader: {fileID: 4800000, guid: 860122647d7e9d84f93253fe8f7336e0, type: 3}
+  m_Name: GhostMenu
+  m_Shader: {fileID: 4800000, guid: a5da3a5bc66f23d4e9e793f58a91b2f8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -72,11 +72,8 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _fadeTime: 2
-    - _minAlpha: 0.1
-    - minAlpha: 0.3
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Colour1: {r: 1, g: 0, b: 0.76246595, a: 1}
-    - _Colour2: {r: 1, g: 0, b: 0.76246595, a: 0}
+    - _Colour2: {r: 0, g: 1, b: 0.24680638, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

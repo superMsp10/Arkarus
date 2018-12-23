@@ -42,8 +42,6 @@ public class Ghost : MonoBehaviour, Poolable
 
     public void OnTriggerCollide(Collider other)
     {
-
-        Debug.Log("hi");
         thisPooler.disposeObject(this);
     }
 

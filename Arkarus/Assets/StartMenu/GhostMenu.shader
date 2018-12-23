@@ -5,7 +5,7 @@
 // - no lightmap support
 // - no per-material color
 
-Shader "Custom/Ghost" {
+Shader "Custom/GhostMenu" {
 Properties {
 	_MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
 	_Colour1("Colour 1", Color) = (1,1,1,1)
@@ -63,7 +63,7 @@ SubShader {
 			{
 				fixed4 col = tex2D(_MainTex, i.texcoord);
 				UNITY_APPLY_FOG(i.fogCoord, col);
-				return col * lerp(_Colour1 + i.texcoord.x, _Colour2 + i.texcoord.y, sin(_Time[1]/2) ) * (1,1,1,sin(_Time[1])/3 + 0.6);
+				return col * lerp(_Colour1 + i.texcoord.x, _Colour2 + i.texcoord.y, sin(_Time[1]/2));
 			}
 		ENDCG
 	}
