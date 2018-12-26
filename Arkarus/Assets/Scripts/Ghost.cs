@@ -6,7 +6,9 @@ public class Ghost : MonoBehaviour, Poolable
 {
 
     Vector3 finalPos;
-    public float moveTime = 1f, moveDistance = 2f;
+    Quaternion finalRot;
+    public float moveTime = 1f, moveDistance = 2f, rotateSpeed = 1f;
+    Camera playerCam;
 
     GameObject Poolable.gameobject
     {
@@ -16,11 +18,12 @@ public class Ghost : MonoBehaviour, Poolable
         }
     }
 
-    public Pooler thisPooler { get ; set ; }
+    public Pooler thisPooler { get; set; }
 
     // Use this for initialization
     void Start()
     {
+        playerCam = GameManager.gameManager.FirstPersonCamera;
         StartCoroutine(Move());
     }
 
@@ -34,8 +37,10 @@ public class Ghost : MonoBehaviour, Poolable
     {
         while (true)
         {
-            Vector3 deltaPlayer = GameManager.gameManager.FirstPersonCamera.transform.position - transform.position;
-            finalPos = Vector3.MoveTowards(transform.position, Random.onUnitSphere + deltaPlayer, 1f);
+            Vector3 rand = Random.onUnitSphere;
+            Vector3 deltaPlayer = playerCam.transform.position - transform.position;
+            finalPos = Vector3.MoveTowards(transform.position, rand + deltaPlayer, 1f);
+            finalRot = Quaternion.LookRotation((playerCam.transform.position -transform.position) + rand);
             yield return new WaitForSeconds(moveTime);
         }
     }
@@ -50,6 +55,8 @@ public class Ghost : MonoBehaviour, Poolable
     {
         Vector3 x = Vector3.zero;
         transform.position = Vector3.SmoothDamp(transform.position, finalPos, ref x, moveTime / 2);
+        transform.rotation = Quaternion.Slerp(transform.rotation, finalRot, rotateSpeed * Time.deltaTime);
+
     }
 
     void Poolable.reset(bool on)
