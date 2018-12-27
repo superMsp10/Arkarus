@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4541713576787704}
   - component: {fileID: 114336742140901832}
+  - component: {fileID: 1348210621}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -55,8 +56,29 @@ MonoBehaviour:
   moveTime: 1
   moveDistance: 10
   rotateSpeed: 1
-  faceExpressionTimeMin: 1
-  faceExpressionTimeMax: 5
+  openFaceTimeMin: 5
+  openFaceTimeMax: 10
+  closedFaceTimeMin: 0.2
+  closedFaceTimeMax: 1
+--- !u!95 &1348210621
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438457169769370}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07cc64b7cf891ca47a1c9963a68c7bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2943220099547399728
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,15 +367,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 5221912c17c6ffa4988cbf5723d7ceb6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 5221912c17c6ffa4988cbf5723d7ceb6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 5221912c17c6ffa4988cbf5723d7ceb6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 5221912c17c6ffa4988cbf5723d7ceb6, type: 3}
       propertyPath: m_LocalRotation.w
