@@ -44,8 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b810bb0b07551a142a4e75a448b8bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eyeR: {fileID: 8103527804582558609}
+  eyeL: {fileID: 1140465887887972834}
+  eyeOpenSprite:
+  - {fileID: 21300006, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
+  - {fileID: 21300008, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
+  eyeClosedSprite:
+  - {fileID: 21300002, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
+  - {fileID: 21300010, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
   moveTime: 1
   moveDistance: 10
+  rotateSpeed: 1
+  faceExpressionTimeMin: 1
+  faceExpressionTimeMax: 5
 --- !u!1 &2943220099547399728
 GameObject:
   m_ObjectHideFlags: 0
