@@ -7,13 +7,14 @@ public class GhostSpawner : MonoBehaviour
     public GameObject ghostPrefab;
     public float spawnRangeMin, spawnRangeMax, frustrumDestOffest = 0.5f;
     public int maxGhostCount, ghostSpawnRate;
+    public Transform ghostsTransform;
     Pooler ghostPooler;
     Camera fpCam ;
 
     // Start is called before the first frame update
     void Start()
     {
-        fpCam = GameManager.gameManager.FirstPersonCamera;
+        fpCam = GameManager.Instance.FirstPersonCamera;
         ghostPooler = new Pooler(maxGhostCount, ghostPrefab);
         InvokeRepeating("SpawnGhosts", 0f, ghostSpawnRate);
     }
@@ -62,6 +63,7 @@ public class GhostSpawner : MonoBehaviour
             Vector3 frustrumDest = fpCam.ViewportPointToRay(pointOnViewportEdge).direction * r_depth;
             Vector3 offset = (frustrumDest - fpCam.transform.forward * r_depth).normalized * frustrumDestOffest;
             g.transform.position = frustrumDest + offset;
+            g.transform.parent = ghostsTransform;
         }
     }
 

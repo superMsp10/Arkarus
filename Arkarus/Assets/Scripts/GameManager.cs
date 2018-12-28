@@ -5,7 +5,7 @@ using GoogleARCore;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager gameManager;
+    public static GameManager Instance;
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
     //public GameObject scanGround;
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = this;
+        Instance = this;
     }
 
     // Use this for initialization

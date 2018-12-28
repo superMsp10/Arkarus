@@ -33,10 +33,11 @@ public class Ghost : MonoBehaviour, Poolable
 
     void Start()
     {
-        playerCam = GameManager.gameManager.FirstPersonCamera;
-        StartCoroutine(Move());
-        StartCoroutine(FaceExpressionChange());
+    }
 
+    private void Awake()
+    {
+        playerCam = GameManager.Instance.FirstPersonCamera;
     }
 
     void Update()
@@ -103,13 +104,20 @@ public class Ghost : MonoBehaviour, Poolable
         Vector3 x = Vector3.zero;
         transform.position = Vector3.SmoothDamp(transform.position, finalPos, ref x, moveTime);
         transform.rotation = Quaternion.Slerp(transform.rotation, finalRot, rotateSpeed * Time.deltaTime);
-
     }
 
     void Poolable.reset(bool on)
     {
         gameObject.SetActive(on);
         if (on)
-            transform.rotation = Quaternion.identity;
+        {
+            StartCoroutine(Move());
+            StartCoroutine(FaceExpressionChange());
+        }
+        else
+        {
+            StopAllCoroutines();
+        }
+
     }
 }
