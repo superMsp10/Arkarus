@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GhostSpawner : MonoBehaviour
 {
-    public GameObject ghostPrefab;
+    public GameObject[] ghostPrefabs;
     public float spawnRangeMin, spawnRangeMax, frustrumDestOffest = 0.5f;
     public int maxGhostCount, ghostSpawnRate;
     public Transform ghostsTransform;
@@ -15,7 +15,7 @@ public class GhostSpawner : MonoBehaviour
     void Start()
     {
         fpCam = GameManager.Instance.FirstPersonCamera;
-        ghostPooler = new Pooler(maxGhostCount, ghostPrefab);
+        ghostPooler = new GhostPooler(maxGhostCount, ghostPrefabs);
         InvokeRepeating("SpawnGhosts", 0f, ghostSpawnRate);
     }
 

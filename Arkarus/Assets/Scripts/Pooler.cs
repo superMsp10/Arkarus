@@ -38,7 +38,7 @@ public class Pooler
         {
             //						Debug.Log ("Useable" + useable.Count);
             Poolable p;
-            ret = Object.Instantiate(original);
+            ret = InstantiateObject();
             useable.Add(ret);
             ret.name = "ObjectPooled: " + (useable.Count + active.Count).ToString();
             p = ret.GetComponent<Poolable>();
@@ -68,6 +68,11 @@ public class Pooler
             ret.GetComponent<Poolable>().reset(true);
         return ret;
 
+    }
+
+    public virtual GameObject InstantiateObject()
+    {
+        return Object.Instantiate(original);
     }
 
     public virtual void disposeObject(Poolable p)
