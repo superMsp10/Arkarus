@@ -13,8 +13,8 @@ public class Ghost : MonoBehaviour, Poolable
     //0 is left, 1 is right
     public Sprite[] eyeOpenSprite = new Sprite[2], eyeClosedSprite = new Sprite[2];
 
-    public float moveTime = 1f,
-        moveDistance = 2f,
+    public float moveRefreshTime = 1f,
+        moveSpeed = 2f,
         rotateSpeed = 1f,
         openFaceTimeMin = 5f,
         openFaceTimeMax = 10f,
@@ -89,7 +89,7 @@ public class Ghost : MonoBehaviour, Poolable
             Vector3 deltaPlayer = playerCam.transform.position - transform.position;
             finalPos = Vector3.MoveTowards(transform.position, rand + deltaPlayer, 1f);
             finalRot = Quaternion.LookRotation((playerCam.transform.position - transform.position) + rand);
-            yield return new WaitForSeconds(moveTime);
+            yield return new WaitForSeconds(moveRefreshTime);
         }
     }
 
@@ -102,7 +102,7 @@ public class Ghost : MonoBehaviour, Poolable
     private void FixedUpdate()
     {
         Vector3 x = Vector3.zero;
-        transform.position = Vector3.SmoothDamp(transform.position, finalPos, ref x, moveTime);
+        transform.position = Vector3.SmoothDamp(transform.position, finalPos, ref x, 1/moveSpeed);
         transform.rotation = Quaternion.Slerp(transform.rotation, finalRot, rotateSpeed * Time.deltaTime);
     }
 

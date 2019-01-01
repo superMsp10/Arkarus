@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HappyGhost
+  m_Name: GhostHappy
   m_Shader: {fileID: 4800000, guid: 860122647d7e9d84f93253fe8f7336e0, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

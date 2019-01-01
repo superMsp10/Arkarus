@@ -14,6 +14,32 @@ TextureImporter:
     21300018: GhostFaces_7
     21300020: GhostFaces_8
     21300022: GhostFaces_9
+    21300024: GhostFaces_10
+    21300026: GhostFaces_11
+    21300028: GhostFaces_12
+    21300030: GhostFaces_13
+    21300032: GhostFaces_14
+    21300034: GhostFaces_15
+    21300036: GhostFaces_16
+    21300038: GhostFaces_17
+    21300040: GhostFaces_18
+    21300042: GhostFaces_19
+    21300044: GhostFaces_20
+    21300046: GhostFaces_21
+    21300048: GhostFaces_22
+    21300050: GhostFaces_23
+    21300052: GhostFaces_24
+    21300054: GhostFaces_25
+    21300056: GhostFaces_26
+    21300058: GhostFaces_27
+    21300060: GhostFaces_28
+    21300062: GhostFaces_29
+    21300064: GhostFaces_30
+    21300066: GhostFaces_31
+    21300068: GhostFaces_32
+    21300070: GhostFaces_33
+    21300072: GhostFaces_34
+    21300074: GhostFaces_35
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -111,9 +137,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 342
-        width: 170
-        height: 170
+        y: 341.3333
+        width: 170.66667
+        height: 170.66667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,7 +147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d9daefc3ce2e054ab4dabd8e3dd31c7
+      spriteID: 2bcf0198f0143a9478ef305c207686ff
       vertices: []
       indices: 
       edges: []
@@ -131,9 +157,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 170
-        y: 342
-        width: 170
-        height: 170
+        y: 341.3333
+        width: 170.66667
+        height: 170.66667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,7 +167,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7054452d0cc8f864db86c037c5f242cb
+      spriteID: 3c35463d3185aae4ba03b234bc49acd2
       vertices: []
       indices: 
       edges: []
@@ -151,9 +177,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 340
-        y: 342
-        width: 170
-        height: 170
+        y: 341.3333
+        width: 170.66667
+        height: 170.66667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c50756b785ed0004b88320ca461f1322
+      spriteID: fb8dd3303056a7c47bf57bb3fac0b87e
       vertices: []
       indices: 
       edges: []
@@ -171,9 +197,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 510
-        y: 342
-        width: 170
-        height: 170
+        y: 341.3333
+        width: 170.66667
+        height: 170.66667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,7 +207,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcc530a329d341b44a95bd8e1383bae6
+      spriteID: bd97894292c8dc54e84ea023b82b1482
       vertices: []
       indices: 
       edges: []
@@ -190,10 +216,10 @@ TextureImporter:
       name: GhostFaces_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 172
-        width: 170
-        height: 170
+        x: 680
+        y: 341.3333
+        width: 170.66667
+        height: 170.66667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,7 +227,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aafe3a085891d8c4faf81ee38b174a49
+      spriteID: 8239ff6093450bc40972b6459370bbae
       vertices: []
       indices: 
       edges: []
@@ -210,10 +236,10 @@ TextureImporter:
       name: GhostFaces_5
       rect:
         serializedVersion: 2
-        x: 170
-        y: 172
-        width: 170
-        height: 170
+        x: 850
+        y: 341.3333
+        width: 170.66667
+        height: 170.66667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,7 +247,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f320237cfc11b74883de940e71ea0f1
+      spriteID: baef28d52c4145745b3db10af9d1861d
       vertices: []
       indices: 
       edges: []
@@ -230,10 +256,10 @@ TextureImporter:
       name: GhostFaces_6
       rect:
         serializedVersion: 2
-        x: 340
-        y: 172
-        width: 170
-        height: 170
+        x: 1020
+        y: 341.3333
+        width: 170.66667
+        height: 170.66667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,7 +267,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c363c821cafd5ec469e30f9737a52f69
+      spriteID: 2ba06ba89a83009488c7c2c4163bb034
       vertices: []
       indices: 
       edges: []
@@ -250,10 +276,10 @@ TextureImporter:
       name: GhostFaces_7
       rect:
         serializedVersion: 2
-        x: 510
-        y: 172
-        width: 170
-        height: 170
+        x: 1190
+        y: 341.3333
+        width: 170.66667
+        height: 170.66667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,7 +287,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33f7f5e1554c93f4a97957d534b215d8
+      spriteID: 1642f2a74c773454b9dc477ea29dcc7c
       vertices: []
       indices: 
       edges: []
@@ -270,10 +296,10 @@ TextureImporter:
       name: GhostFaces_8
       rect:
         serializedVersion: 2
-        x: 170
-        y: 2
-        width: 170
-        height: 170
+        x: 1360
+        y: 341.3333
+        width: 170.66667
+        height: 170.66667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,7 +307,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f3401500e3130140b722a1c1e6e0a2d
+      spriteID: 683cbd04d0e1d27429858d866840b654
       vertices: []
       indices: 
       edges: []
@@ -290,10 +316,10 @@ TextureImporter:
       name: GhostFaces_9
       rect:
         serializedVersion: 2
-        x: 340
-        y: 2
-        width: 170
-        height: 170
+        x: 1530
+        y: 341.3333
+        width: 170.66667
+        height: 170.66667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,7 +327,527 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f32513634094add4ca57fa85b327902d
+      spriteID: aeed797d294715e4288103e562c1be17
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_10
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 341.3333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bc96262061d76a4bb5e14b8310283fd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_11
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 341.3333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d52e560626ed5c744bcfafc9d97d3deb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 171.33333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cfd1046840d1984bba44dca9e7de2eb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_13
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 171.33333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 867844c8cc3eed944bc1faef4bc9141e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_14
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 171.33333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 000a4333b56b296428f3cc52152b07fd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_15
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 171.33333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e633e8bfe3b8fdd4fb90d5ca7e1d48d1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_16
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 171.33333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4541a359fd2a1d24ba6c7f071167503c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_17
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 171.33333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6050b0931a9cbf04bbea53c94382c901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_18
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 171.33333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94e0c80fe7294249b441187ea3eae57
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_19
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 171.33333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c67dc4ab51d1cc47b361ecc5d51533f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_20
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 171.33333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e54d3019d549ca409aef5a9b7cea2fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_21
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 171.33333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aed7969b8e1cdf44690c0b9069ca3783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_22
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 171.33333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38b626828b6f01a44ae593fd6e29824a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_23
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 171.33333
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dffe7552eb8708441914cb9217ae0312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.3333282
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fe877636aaeec74e858b2da79fe7f34
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_25
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1.3333282
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd087a37ecb033645ad14365cfb8c987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_26
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1.3333282
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1bba5e3e6a0bc34aa6757d95d8d5324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_27
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1.3333282
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf385502fc971c408e10a6b5975ef43
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_28
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1.3333282
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f9c5875c6a7d84428cc2a2af8844a25
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_29
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 1.3333282
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8849eddca7c083479af355929cc5318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_30
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1.3333282
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85bd097b9f84c724a8e22c46e196f63f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_31
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1.3333282
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba2605f91df7f5443af7af2d4b2167cd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_32
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1.3333282
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82457fe96c7d4d34ab8313f4dde52b1a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_33
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 1.3333282
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f22e58cbd69da4ea31a89c86b3316b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_34
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 1.3333282
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb055acc6b36504dbf5dd2631d0fec8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostFaces_35
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 1.3333282
+        width: 170.66667
+        height: 170.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddda032b2f1bca24eb8beaf806f5ce05
       vertices: []
       indices: 
       edges: []

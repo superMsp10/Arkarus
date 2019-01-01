@@ -49,12 +49,12 @@ MonoBehaviour:
   eyeL: {fileID: 1140465887887972834}
   eyeOpenSprite:
   - {fileID: 21300006, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
-  - {fileID: 21300008, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
-  eyeClosedSprite:
   - {fileID: 21300002, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
-  - {fileID: 21300010, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
-  moveTime: 1
-  moveDistance: 10
+  eyeClosedSprite:
+  - {fileID: 21300028, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
+  - {fileID: 21300032, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
+  moveRefreshTime: 1
+  moveSpeed: 1
   rotateSpeed: 1
   openFaceTimeMin: 5
   openFaceTimeMax: 10
@@ -252,7 +252,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300020, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
+  m_Sprite: {fileID: 21300054, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

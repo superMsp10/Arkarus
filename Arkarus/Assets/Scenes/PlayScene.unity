@@ -269,8 +269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostPrefabs:
-  - {fileID: 7004363418221089650, guid: 64a4f26a5e2213f4ab7ff35cd2823d4e, type: 3}
   - {fileID: 1438457169769370, guid: c3c0e872ccef0384fbe4ab3c530c7cbe, type: 3}
+  - {fileID: 7004363418221089650, guid: 64a4f26a5e2213f4ab7ff35cd2823d4e, type: 3}
+  - {fileID: 7330531299107819774, guid: f9525bfefa9adf04bbdf3e72e8251af1, type: 3}
   spawnRangeMin: 2
   spawnRangeMax: 10
   frustrumDestOffest: 2
