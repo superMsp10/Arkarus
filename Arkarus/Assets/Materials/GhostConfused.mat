@@ -72,7 +72,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _fadeTime: 2
+    - _fadeTime: 3
     - _minAlpha: 0.3
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
