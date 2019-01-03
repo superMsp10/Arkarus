@@ -274,6 +274,7 @@ MonoBehaviour:
   - {fileID: 7330531299107819774, guid: f9525bfefa9adf04bbdf3e72e8251af1, type: 3}
   - {fileID: 7721636923000106075, guid: b37462cbc55fee648bbd095b90c50ee2, type: 3}
   - {fileID: 4207172904110313992, guid: b335aff777283524aa966716ab14e70d, type: 3}
+  - {fileID: 4382750876045236468, guid: 6ab6a9e35bf942e4db82ec737afc1fe2, type: 3}
   spawnRangeMin: 2
   spawnRangeMax: 10
   frustrumDestOffest: 2
