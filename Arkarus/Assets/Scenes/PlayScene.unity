@@ -702,4 +702,10 @@ MonoBehaviour:
     type: 3}
   shootPos: {fileID: 1249227608}
   arrowParent: {fileID: 1860603000}
+  arrowModel: {fileID: 1249227608}
   shootPower: 100
+  drawBackDefaultZ: 0.5
+  drawBackMaxZ: 0.3024
+  reloadDefaultY: 0.028
+  reloadDownY: -0.4
+  reloadTime: 0.75
