@@ -9,13 +9,11 @@ using Input = GoogleARCore.InstantPreviewInput;
 public class Bow : MonoBehaviour
 {
     public GameObject shootObjectPrefab;
-    public Transform shootPos;
-    public Transform arrowParent;
-    public Transform arrowModel;
-    public float shootPower = 10f, drawBackDefaultZ, drawBackMaxZ, reloadDefaultY, reloadDownY, reloadTime;
-    float reloadStartTime;
+    public Transform shootPos, arrowsParent, arrowModel;
+    public float shootPower = 10f, drawBackDefaultZ, drawBackZ, reloadDefaultY, reloadDownY, reloadTime, defaultRotationY, maxShakeAmplitude, maxShakePeriods, maxShakeTime;
+    float reloadStartTime, screenPercent, shakeDirection = 1;
     Pooler arrowPooler;
-    Vector2 startPos, endPos;
+    Vector2 startPos;
     bool reloading = false;
 
     // Start is called before the first frame update
@@ -35,13 +33,30 @@ public class Bow : MonoBehaviour
     void Reload()
     {
         float p = (Time.time - reloadStartTime) / reloadTime;
+        float r = (Time.time - reloadStartTime) / maxShakeTime;
 
-        Debug.Log(p);
-        arrowModel.localPosition = new Vector3(arrowModel.localPosition.x, Mathf.Lerp(reloadDownY, reloadDefaultY, p), arrowModel.localPosition.z);
+
+        Debug.LogError("Reload time is less than shake time, undesired effects will arise");
+
+        Debug.Log(r);
+        if (r >= 1)
+        {
+            transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x, defaultRotationY, transform.localRotation.eulerAngles.z);
+        }
+        else
+        {
+            float rotateY = defaultRotationY + Mathf.Sin(2 * Mathf.PI * r * maxShakePeriods * screenPercent) * (1 - r) * screenPercent * maxShakeAmplitude * shakeDirection;
+            transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x, rotateY, transform.localRotation.eulerAngles.z);
+        }
+
         if (p >= 1)
         {
             arrowModel.localPosition = new Vector3(arrowModel.localPosition.x, reloadDefaultY, arrowModel.localPosition.z);
             reloading = false;
+        }
+        else
+        {
+            arrowModel.localPosition = new Vector3(arrowModel.localPosition.x, Mathf.Lerp(reloadDownY, reloadDefaultY, p), arrowModel.localPosition.z);
         }
     }
 
@@ -55,6 +70,8 @@ public class Bow : MonoBehaviour
 
         touch = Input.GetTouch(0);
         Vector2 center = new Vector2(Screen.width / 2, Screen.height / 2);
+        Vector3 diff = (touch.position - startPos);
+        screenPercent = new Vector2(diff.x / Screen.width, diff.y / Screen.height).magnitude;
 
         if (touch.phase == TouchPhase.Began)
         {
@@ -62,18 +79,12 @@ public class Bow : MonoBehaviour
         }
         else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
         {
-            Vector3 diff = (touch.position - startPos);
-            float screenPercent = new Vector2(diff.x / Screen.width, diff.y / Screen.height).magnitude;
-            arrowModel.localPosition = new Vector3(arrowModel.localPosition.x, arrowModel.localPosition.y, Mathf.Lerp(drawBackDefaultZ, drawBackMaxZ, screenPercent));
+            arrowModel.localPosition = new Vector3(arrowModel.localPosition.x, arrowModel.localPosition.y, Mathf.Lerp(drawBackDefaultZ, drawBackZ, screenPercent));
         }
         else
         {
             if (touch.phase == TouchPhase.Ended)
             {
-                endPos = touch.position;
-                Vector3 diff = (endPos - startPos);
-                float screenPercent = new Vector2(diff.x / Screen.width, diff.y / Screen.height).magnitude;
-
                 Debug.Log("screenPercent " + screenPercent * 100);
 
                 if (diff.x > 0 && diff.y < 0 && screenPercent > .2)
@@ -83,11 +94,12 @@ public class Bow : MonoBehaviour
                     Debug.Log("Force: " + force);
                     GameObject g = arrowPooler.getObject();
                     g.transform.position = shootPos.position;
-                    g.transform.parent = arrowParent;
+                    g.transform.parent = arrowsParent;
                     g.transform.forward = shootPos.forward;
                     g.GetComponent<Rigidbody>().AddForce(force, ForceMode.Force);
                     reloading = true;
                     reloadStartTime = Time.time;
+                    shakeDirection = Random.Range(-1,1) * 2 + 1;
                 }
             }
             arrowModel.localPosition = new Vector3(arrowModel.localPosition.x, arrowModel.localPosition.y, drawBackDefaultZ);
