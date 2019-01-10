@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -16,12 +17,16 @@ public class Bow : MonoBehaviour
     Vector2 startPos;
     bool reloading = false;
     public Material orbMaterial;
+    public Light orbGlow;
+    public ParticleSystem orbParticles;
+    ParticleSystem.MainModule mainParticles;
     public Color color1, color2;
 
     // Start is called before the first frame update
     void Start()
     {
         arrowPooler = new Pooler(100, shootObjectPrefab);
+        mainParticles = orbParticles.main;
     }
 
     // Update is called once per frame
@@ -30,8 +35,10 @@ public class Bow : MonoBehaviour
         if (reloading)
             Reload();
         UpdateShoot();
-        orbMaterial.SetColor("_Color", Color.Lerp(color1, color2, Mathf.Abs(Mathf.Sin(Time.time / 2))));
-
+        Color flashColor = Color.Lerp(color1, color2, Mathf.Abs(Mathf.Sin(Time.time / 2)));
+        orbMaterial.SetColor("_Color", flashColor);
+        orbGlow.color = flashColor;
+        mainParticles.startColor = flashColor;
     }
 
     void Reload()

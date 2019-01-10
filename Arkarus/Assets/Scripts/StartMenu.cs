@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
+
 public class StartMenu : MonoBehaviour
 {
     public string PlaySceneName;
     public TextMeshProUGUI text;
+    public Image edgeflash;
     public Color color1, color2;
 
     // Use this for initialization
@@ -19,7 +22,7 @@ public class StartMenu : MonoBehaviour
     {
         text.faceColor = Color.Lerp(color1, color2, Mathf.Abs(Mathf.Sin(Time.time/2)));
         text.outlineColor = Color.Lerp(color2, color1, Mathf.Abs(Mathf.Sin(Time.time/2)));
-
+        edgeflash.color = Color.Lerp(color1, color2, Mathf.Abs(Mathf.Sin(Time.time / 2)));
     }
 
     public void StartPlayScene()
