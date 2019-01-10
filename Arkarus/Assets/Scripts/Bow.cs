@@ -15,6 +15,8 @@ public class Bow : MonoBehaviour
     Pooler arrowPooler;
     Vector2 startPos;
     bool reloading = false;
+    public Material orbMaterial;
+    public Color color1, color2;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,8 @@ public class Bow : MonoBehaviour
         if (reloading)
             Reload();
         UpdateShoot();
+        orbMaterial.SetColor("_Color", Color.Lerp(color1, color2, Mathf.Abs(Mathf.Sin(Time.time / 2))));
+
     }
 
     void Reload()
