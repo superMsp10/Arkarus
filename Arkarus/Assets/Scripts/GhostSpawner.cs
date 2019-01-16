@@ -11,12 +11,25 @@ public class GhostSpawner : MonoBehaviour
     Pooler ghostPooler;
     Camera fpCam ;
 
+    public GameObject ghostResiduePrefab;
+    Pooler ghostResiduePooler;
+
     // Start is called before the first frame update
     void Start()
     {
         fpCam = GameManager.Instance.FirstPersonCamera;
         ghostPooler = new GhostPooler(maxGhostCount, ghostPrefabs);
+        ghostResiduePooler = new Pooler(maxGhostCount / 4, ghostResiduePrefab);
         InvokeRepeating("SpawnGhosts", 0f, ghostSpawnRate);
+    }
+
+    public void SpawnGhostResidue(Ghost dead)
+    {
+        GameObject g = ghostResiduePooler.getObject();
+        g.transform.parent = ghostsTransform;
+        g.transform.position = dead.transform.position;
+        g.transform.rotation = dead.transform.rotation;
+        g.GetComponent<GhostResidue>().CopyfromGhost(dead);
     }
 
     public void SpawnGhosts()
@@ -24,7 +37,7 @@ public class GhostSpawner : MonoBehaviour
         if (ghostPooler.active.Count < maxGhostCount)
         {
             GameObject g = ghostPooler.getObject();
-            //Camera frustrum has 4 lines projecting out of the camera
+            //Camera frustrum has 4 sides projecting out of the camera
             //      0
             //   A --- B
             // 3 |     | 1

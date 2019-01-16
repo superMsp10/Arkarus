@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b810bb0b07551a142a4e75a448b8bcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderer: {fileID: 4935659710918881810}
   eyeR: {fileID: 8103527804582558609}
   eyeL: {fileID: 1140465887887972834}
   eyeOpenSprite:
@@ -450,6 +451,12 @@ Transform:
 --- !u!4 &4935659710915404596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 5221912c17c6ffa4988cbf5723d7ceb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4935659710915803568}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &4935659710918881810 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700002, guid: 5221912c17c6ffa4988cbf5723d7ceb6,
     type: 3}
   m_PrefabInstance: {fileID: 4935659710915803568}
   m_PrefabAsset: {fileID: 0}

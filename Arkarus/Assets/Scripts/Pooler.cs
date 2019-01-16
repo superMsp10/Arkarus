@@ -77,8 +77,8 @@ public class Pooler
 
     public virtual void disposeObject(Poolable p)
     {
-        active.Remove(p.gameobject);
-        useable.Add(p.gameobject);
+        active.Remove(p.pooledGameObject);
+        useable.Add(p.pooledGameObject);
         p.reset(false);
     }
 

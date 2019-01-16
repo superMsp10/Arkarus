@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirstPersonCamera: {fileID: 1267587445}
+  spawner: {fileID: 453888548}
 --- !u!114 &453888548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +283,8 @@ MonoBehaviour:
   maxGhostCount: 25
   ghostSpawnRate: 1
   ghostsTransform: {fileID: 19686323}
+  ghostResiduePrefab: {fileID: 8494921666881389819, guid: e79c056a09cdc834ab19d24b0a40a90f,
+    type: 3}
 --- !u!1 &463222027
 GameObject:
   m_ObjectHideFlags: 0

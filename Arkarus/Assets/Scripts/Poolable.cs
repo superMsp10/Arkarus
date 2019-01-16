@@ -3,7 +3,7 @@ using System.Collections;
 
 public interface Poolable
 {
-    GameObject gameobject
+    GameObject pooledGameObject
     {
         get;
     }

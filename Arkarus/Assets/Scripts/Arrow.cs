@@ -10,7 +10,7 @@ public class Arrow : MonoBehaviour, Poolable
     public Pooler thisPooler { get; set; }
     public float resetTime = 5f;
 
-    GameObject Poolable.gameobject
+    GameObject Poolable.pooledGameObject
     {
         get
         {

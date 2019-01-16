@@ -9,6 +9,7 @@ public class Ghost : MonoBehaviour, Poolable
     Quaternion finalRot;
     Camera playerCam;
 
+    public Renderer renderer;
     public SpriteRenderer eyeR, eyeL;
     //0 is left, 1 is right
     public Sprite[] eyeOpenSprite = new Sprite[2], eyeClosedSprite = new Sprite[2];
@@ -21,7 +22,7 @@ public class Ghost : MonoBehaviour, Poolable
         closedFaceTimeMin = .2f,
         closedFaceTimeMax = 1f;
 
-    GameObject Poolable.gameobject
+    GameObject Poolable.pooledGameObject
     {
         get
         {
@@ -95,6 +96,7 @@ public class Ghost : MonoBehaviour, Poolable
 
     public void OnTriggerCollide(Collider other)
     {
+        GameManager.Instance.spawner.SpawnGhostResidue(this);
         thisPooler.disposeObject(this);
     }
 
