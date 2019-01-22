@@ -10,9 +10,10 @@ public class Ghost : MonoBehaviour, Poolable
     Camera playerCam;
 
     public Renderer renderer;
-    public SpriteRenderer eyeR, eyeL;
+    public SpriteRenderer eyeR, eyeL, mouth;
     //0 is left, 1 is right
     public Sprite[] eyeOpenSprite = new Sprite[2], eyeClosedSprite = new Sprite[2];
+    public Transform mesh;
 
     public float moveRefreshTime = 1f,
         moveSpeed = 2f,

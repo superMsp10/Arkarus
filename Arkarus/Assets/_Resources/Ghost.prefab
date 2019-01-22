@@ -48,12 +48,14 @@ MonoBehaviour:
   renderer: {fileID: 4935659710918881810}
   eyeR: {fileID: 8103527804582558609}
   eyeL: {fileID: 1140465887887972834}
+  mouth: {fileID: 8207598630710982224}
   eyeOpenSprite:
   - {fileID: 21300006, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
   - {fileID: 21300002, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
   eyeClosedSprite:
   - {fileID: 21300028, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
   - {fileID: 21300032, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
+  mesh: {fileID: 4935659710915404594}
   moveRefreshTime: 1
   moveSpeed: 1
   rotateSpeed: 1
@@ -398,6 +400,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13700002, guid: 5221912c17c6ffa4988cbf5723d7ceb6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e2b7ed841b1325842aef39d5ef850605, type: 2}
     - target: {fileID: 400012, guid: 5221912c17c6ffa4988cbf5723d7ceb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 89.98021
@@ -430,10 +436,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.000009714717
       objectReference: {fileID: 0}
-    - target: {fileID: 13700002, guid: 5221912c17c6ffa4988cbf5723d7ceb6, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e2b7ed841b1325842aef39d5ef850605, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5221912c17c6ffa4988cbf5723d7ceb6, type: 3}
 --- !u!1 &4935659710915706642 stripped
