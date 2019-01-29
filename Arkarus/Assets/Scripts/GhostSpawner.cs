@@ -20,6 +20,10 @@ public class GhostSpawner : MonoBehaviour
         fpCam = GameManager.Instance.FirstPersonCamera;
         ghostPooler = new GhostPooler(maxGhostCount, ghostPrefabs);
         ghostResiduePooler = new Pooler(maxGhostCount / 4, ghostResiduePrefab);
+    }
+
+    public void StartSpawning()
+    {
         InvokeRepeating("SpawnGhosts", 0f, ghostSpawnRate);
     }
 
