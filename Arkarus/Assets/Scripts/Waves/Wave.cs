@@ -7,8 +7,7 @@ public class Wave : MonoBehaviour
 {
     public delegate void Update(float progressPercent);
     public Update OnUpdate;
-    public int currentProgress;
-    public int totalProgress;
+    public float currentProgress, totalProgress;
     public Wave nextWave;
     public string WaveName;
 
@@ -19,8 +18,10 @@ public class Wave : MonoBehaviour
 
     public virtual void WaveUpdate()
     {
-        currentProgress++;
-        OnUpdate(((float)currentProgress) / totalProgress);
+        float progress = (currentProgress) / totalProgress;
+        OnUpdate(progress);
+        if (progress >= 1)
+            WaveEnd();
     }
 
     public virtual void WaveEnd()

@@ -22,11 +22,17 @@ public class Bow : MonoBehaviour
     ParticleSystem.MainModule mainParticles;
     public Color color1, color2;
 
+    public delegate void BowUpdate(float percent);
+    public BowUpdate WhileChargeUp;
+    public BowUpdate OnShoot;
+
     // Start is called before the first frame update
     void Start()
     {
         arrowPooler = new Pooler(100, shootObjectPrefab);
         mainParticles = orbParticles.main;
+        OnShoot += Shoot;
+        WhileChargeUp += BowModelChargeUp;
     }
 
     // Update is called once per frame
@@ -71,6 +77,26 @@ public class Bow : MonoBehaviour
         }
     }
 
+    void Shoot(float screenPercent)
+    {
+        Vector3 force = shootPos.forward.normalized * screenPercent * shootPower;
+
+        Debug.Log("Force: " + force);
+        GameObject g = arrowPooler.getObject();
+        g.transform.position = shootPos.position;
+        g.transform.parent = arrowsParent;
+        g.transform.forward = shootPos.forward;
+        g.GetComponent<Rigidbody>().AddForce(force, ForceMode.Force);
+        reloading = true;
+        reloadStartTime = Time.time;
+        shakeDirection = Random.Range(-1, 1) * 2 + 1;
+    }
+
+    void BowModelChargeUp(float screenPercent)
+    {
+        arrowModel.localPosition = new Vector3(arrowModel.localPosition.x, arrowModel.localPosition.y, Mathf.Lerp(drawBackDefaultZ, drawBackZ, screenPercent));
+    }
+
     void UpdateShoot()
     {
         Touch touch;
@@ -90,7 +116,7 @@ public class Bow : MonoBehaviour
         }
         else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
         {
-            arrowModel.localPosition = new Vector3(arrowModel.localPosition.x, arrowModel.localPosition.y, Mathf.Lerp(drawBackDefaultZ, drawBackZ, screenPercent));
+            WhileChargeUp(screenPercent);
         }
         else
         {
@@ -100,17 +126,7 @@ public class Bow : MonoBehaviour
 
                 if (diff.x > 0 && diff.y < 0 && screenPercent > .2)
                 {
-                    Vector3 force = shootPos.forward.normalized * screenPercent * shootPower;
-
-                    Debug.Log("Force: " + force);
-                    GameObject g = arrowPooler.getObject();
-                    g.transform.position = shootPos.position;
-                    g.transform.parent = arrowsParent;
-                    g.transform.forward = shootPos.forward;
-                    g.GetComponent<Rigidbody>().AddForce(force, ForceMode.Force);
-                    reloading = true;
-                    reloadStartTime = Time.time;
-                    shakeDirection = Random.Range(-1,1) * 2 + 1;
+                    OnShoot(screenPercent);
                 }
             }
             arrowModel.localPosition = new Vector3(arrowModel.localPosition.x, arrowModel.localPosition.y, drawBackDefaultZ);
