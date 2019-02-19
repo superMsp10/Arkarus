@@ -52,10 +52,9 @@ public class Bow : MonoBehaviour
         float p = (Time.time - reloadStartTime) / reloadTime;
         float r = (Time.time - reloadStartTime) / maxShakeTime;
 
+        //Debug.Log("r" + r);
+        //Debug.LogError("Reload time is less than shake time, undesired effects will arise");
 
-        Debug.LogError("Reload time is less than shake time, undesired effects will arise");
-
-        Debug.Log(r);
         if (r >= 1)
         {
             transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x, defaultRotationY, transform.localRotation.eulerAngles.z);
