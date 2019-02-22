@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class TutorialProgressWave : Wave
 {
+    public void IncreaseProgress()
+    {
+        currentProgress++;
+    }
+
+    public void DecreaseProgress()
+    {
+        currentProgress--;
+    }
 
     public override void WaveStart(Update upd)
     {
