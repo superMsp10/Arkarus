@@ -1166,6 +1166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirstPersonCamera: {fileID: 1267587445}
+  waves: {fileID: 453888549}
   spawner: {fileID: 453888548}
 --- !u!114 &453888548
 MonoBehaviour:
@@ -7217,12 +7218,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d32f20380bc0ad478a3496aaac8b6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalProgress: 0
+  totalProgress: 10
   _currentProgress: 0
   nextWave: {fileID: 1542848878}
   WaveName: Tutorial Start
   tutStartPanel: {fileID: 1311521845}
-  gameStartWave: {fileID: 0}
+  gameStartWave: {fileID: 1912439253}
 --- !u!1 &1314626477
 GameObject:
   m_ObjectHideFlags: 0
@@ -8953,11 +8954,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa2e9fed86615e4a823820537e4a84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalProgress: 100
+  totalProgress: 10
   _currentProgress: 0
-  nextWave: {fileID: 0}
-  WaveName: 
-  spawner: {fileID: 0}
+  nextWave: {fileID: 1912439253}
+  WaveName: Game Wave
+  spawner: {fileID: 453888548}
+  iteration: 1
 --- !u!1 &1967717210 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: fb8c0cf7a75a2b74ab29554d64c7c8fd,

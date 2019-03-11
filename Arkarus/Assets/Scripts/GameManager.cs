@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private bool m_IsQuitting = false;
     bool setupBase = true;
     public Camera FirstPersonCamera;
+    public WaveManager waves;
     public GhostSpawner spawner;
 
     private void Awake()

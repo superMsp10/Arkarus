@@ -9,9 +9,10 @@ public class GhostSpawner : MonoBehaviour
     public int maxGhostCount, ghostSpawnRate;
     public Transform ghostsTransform;
     Pooler ghostPooler;
-    Camera fpCam ;
+    Camera fpCam;
 
     public GameObject ghostResiduePrefab;
+    public Ghost.GhostUpdate GhostDeath;
     Pooler ghostResiduePooler;
 
     // Start is called before the first frame update
@@ -82,11 +83,5 @@ public class GhostSpawner : MonoBehaviour
             g.transform.position = frustrumDest + offset;
             g.transform.parent = ghostsTransform;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

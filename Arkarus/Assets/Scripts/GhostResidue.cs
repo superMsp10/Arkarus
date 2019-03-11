@@ -27,7 +27,7 @@ public class GhostResidue : MonoBehaviour, Poolable
         {
             startTime = Time.time;
             particleSystem.Play();
-            Invoke("clearResidue", clearTime);
+            Invoke("ClearResidue", clearTime);
         }
     }
 

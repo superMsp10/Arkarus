@@ -34,7 +34,7 @@ public class Wave : MonoBehaviour
     public virtual void WaveReset()
     {
         currentProgress = 0;
-        WaveUpdate();
+        //Automatically updates wave through param
     }
 
     public virtual void WaveUpdate()

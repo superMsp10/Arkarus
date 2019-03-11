@@ -12,6 +12,8 @@ public class GhostPooler : Pooler
 
     public override GameObject InstantiateObject()
     {
-        return Object.Instantiate(originals[Random.Range(0, originals.Length)]);
+        GameObject o = Object.Instantiate(originals[Random.Range(0, originals.Length)]);
+        o.GetComponent<Ghost>().OnDeath = GameManager.Instance.spawner.GhostDeath;
+        return o;
     }
 }

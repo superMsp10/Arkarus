@@ -9,11 +9,14 @@ public class Ghost : MonoBehaviour, Poolable
     Quaternion finalRot;
     Camera playerCam;
 
-    public Renderer renderer;
+    new public Renderer renderer;
     public SpriteRenderer eyeR, eyeL, mouth;
     //0 is left, 1 is right
     public Sprite[] eyeOpenSprite = new Sprite[2], eyeClosedSprite = new Sprite[2];
     public Transform mesh;
+    public float SoulCount = 1f;
+    public delegate void GhostUpdate(float count);
+    public GhostUpdate OnDeath;
 
     public float moveRefreshTime = 1f,
         moveSpeed = 2f,
@@ -98,6 +101,7 @@ public class Ghost : MonoBehaviour, Poolable
     public void OnTriggerCollide(Collider other)
     {
         GameManager.Instance.spawner.SpawnGhostResidue(this);
+        OnDeath(SoulCount);
         thisPooler.disposeObject(this);
     }
 
