@@ -69,6 +69,7 @@ Material:
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
+    - _NoiseMultiplier: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -79,6 +80,7 @@ Material:
     - _fadeTime: 10
     - _minAlpha: 0.6
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.30709326, g: 0.49733347, b: 0.9716981, a: 1}
+    - _Colour: {r: 0, g: 0.16447353, b: 1, a: 1}
     - _Colour1: {r: 0.13995194, g: 0.23595315, b: 0.8018868, a: 0.43529412}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

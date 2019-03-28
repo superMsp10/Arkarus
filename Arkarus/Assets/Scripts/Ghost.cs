@@ -11,6 +11,7 @@ public class Ghost : MonoBehaviour, Poolable
 
     new public Renderer renderer;
     public SpriteRenderer eyeR, eyeL, mouth;
+    public TrailRenderer trailRen;
     //0 is left, 1 is right
     public Sprite[] eyeOpenSprite = new Sprite[2], eyeClosedSprite = new Sprite[2];
     public Transform mesh;
@@ -123,6 +124,7 @@ public class Ghost : MonoBehaviour, Poolable
         }
         else
         {
+            trailRen.Clear();
             StopAllCoroutines();
         }
 

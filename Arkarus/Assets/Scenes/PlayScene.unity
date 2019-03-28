@@ -1188,8 +1188,8 @@ MonoBehaviour:
   - {fileID: 4207172904110313992, guid: b335aff777283524aa966716ab14e70d, type: 3}
   - {fileID: 4382750876045236468, guid: 6ab6a9e35bf942e4db82ec737afc1fe2, type: 3}
   - {fileID: 5367332282465330670, guid: 20ceccf5f457ac6419a1bdf4309b4e26, type: 3}
-  spawnRangeMin: 2
-  spawnRangeMax: 10
+  spawnRangeMin: 0.5
+  spawnRangeMax: 2
   frustrumDestOffest: 2
   maxGhostCount: 25
   ghostSpawnRate: 1
@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063fc296addbba74f91466e619359c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWave: {fileID: 1311521849}
+  startWave: {fileID: 1912439253}
   jar: {fileID: 1710330202}
 --- !u!1 &463222027
 GameObject:
