@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063fc296addbba74f91466e619359c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWave: {fileID: 1912439253}
+  startWave: {fileID: 1311521849}
   jar: {fileID: 1710330202}
 --- !u!1 &463222027
 GameObject:

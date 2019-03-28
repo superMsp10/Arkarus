@@ -43,7 +43,7 @@ public class GhostResidue : MonoBehaviour, Poolable
             particleSystem.Stop();
             soulParticleSystem.Stop();
             CancelInvoke();
-            soulParticleSystem.transform.position = Vector3.zero;
+            soulParticleSystem.transform.localPosition = Vector3.zero;
         }
     }
 
