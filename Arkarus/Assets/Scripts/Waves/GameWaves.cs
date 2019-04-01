@@ -12,16 +12,15 @@ public class GameWaves : Wave
         spawner.GhostDeath += OnGhostDeath;
     }
 
-    public override void WaveStart(Update upd)
+    public override void StartWave( WaveUpdate upd)
     {
         iteration++;
-        WaveName = "Game Wave " + iteration;
-        spawner.StartSpawning();
+        _waveName = "Game Wave " + iteration;
         spawner.ghostSpawnRate += iteration;
         spawner.spawnRangeMax += iteration;
         spawner.spawnRangeMin += iteration;
 
-        base.WaveStart(upd);
+        base.StartWave(upd);
         spawner.StartSpawning();
     }
 

@@ -5,9 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class Wave : MonoBehaviour
 {
-    public delegate void Update(float progressPercent);
-    public Update OnUpdate;
+    public delegate void WaveUpdate(float progressPercent);
+    public WaveUpdate OnUpdate;
+
+
     public float totalProgress, _currentProgress;
+    public string _waveName = "Wave",
+        _startDescription = "<color=white>Be Aware!</color>",
+        _endDescription = "<color=red>You destroyed innocent bedsheets!</color>";
+
+
+    public string waveName
+    {
+        get { return _waveName; }
+    }
+
+    public string startDescription
+    {
+        get { return _startDescription; }
+    }
+
+    public string endDescription
+    {
+        get { return _endDescription; }
+    }
+
 
     public float currentProgress
     {
@@ -18,36 +40,35 @@ public class Wave : MonoBehaviour
         set
         {
             _currentProgress = value;
-            WaveUpdate();
+            UpdateWave();
         }
     }
 
     public Wave nextWave;
-    public string WaveName;
 
-    public virtual void WaveStart(Update upd)
+    public virtual void StartWave( WaveUpdate upd)
     {
         OnUpdate = upd;
-        WaveReset();
+        ResetWave();
     }
 
-    public virtual void WaveReset()
+    public virtual void ResetWave()
     {
         currentProgress = 0;
-        //Automatically updates wave through param
+        //Automatically updates wave through currentProgress param
     }
 
-    public virtual void WaveUpdate()
+    public virtual void UpdateWave()
     {
         float progress = (currentProgress) / totalProgress;
         OnUpdate(progress);
         if (progress >= 1)
-            WaveEnd();
+            EndWave();
         if (progress < 0)
-            WaveReset();
+            ResetWave();
     }
 
-    public virtual void WaveEnd()
+    public virtual void EndWave()
     {
         if (nextWave == null)
         {
@@ -55,7 +76,7 @@ public class Wave : MonoBehaviour
         }
         else
         {
-            nextWave.WaveStart(OnUpdate);
+            GameManager.Instance.waves.TransitionToNewWave(nextWave);
         }
     }
 }

@@ -7,22 +7,22 @@ public class TutorialStartWave : Wave
     public GameObject tutStartPanel;
     public Wave gameStartWave;
 
-    public override void WaveStart(Update upd)
+    public override void StartWave(WaveUpdate upd)
     {
         gameObject.SetActive(true);
-        base.WaveStart(upd);
+        base.StartWave(upd);
     }
 
     public void SkipToGameWave()
     {
-        gameObject.SetActive(false);
-        gameStartWave.WaveStart(OnUpdate);
+        nextWave = gameStartWave;
+        EndWave();
     }
 
-    public override void WaveEnd()
+    public override void EndWave()
     {
         gameObject.SetActive(false);
-        base.WaveEnd();
+        base.EndWave();
     }
 
 }

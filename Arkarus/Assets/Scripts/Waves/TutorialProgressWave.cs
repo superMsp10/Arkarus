@@ -14,22 +14,22 @@ public class TutorialProgressWave : Wave
         currentProgress--;
     }
 
-    public override void WaveStart(Update upd)
+    public override void StartWave(WaveUpdate upd)
     {
         gameObject.SetActive(true);
-        base.WaveStart(upd);
+        base.StartWave(upd);
     }
 
 
-    public override void WaveUpdate()
+    public override void UpdateWave()
     {
-        base.WaveUpdate();
+        base.UpdateWave();
     }
 
 
-    public override void WaveEnd()
+    public override void EndWave()
     {
         gameObject.SetActive(false);
-        base.WaveEnd();
+        base.EndWave();
     }
 }
