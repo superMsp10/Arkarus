@@ -35,7 +35,8 @@ public class WaveManager : MonoBehaviour
     {
         // Preface, -Title-, Ending
         Debug.Log("Starting wave " + currentWave.waveName);
-        textEffect.set.mesh = waveText.mesh;
+        ParticleSystem.ShapeModule s = textEffect.shape;
+        s.mesh = waveText.mesh;
         waveText.text = string.Format("<size=100><color=#00ff00ff>{0}</color></size=100>\n-{1}-\n<size=50>{2}</size=50>", startPreface, currentWave.waveName, currentWave.startDescription);
     }
 
