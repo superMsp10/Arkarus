@@ -7,7 +7,7 @@ public class Wave : MonoBehaviour
 {
     public delegate void WaveUpdate(float progressPercent);
     public WaveUpdate OnUpdate;
-
+    public bool active = true;
 
     public float totalProgress, _currentProgress;
     public string _waveName = "Wave",
@@ -49,6 +49,7 @@ public class Wave : MonoBehaviour
     public virtual void StartWave( WaveUpdate upd)
     {
         OnUpdate = upd;
+        active = true;
         ResetWave();
     }
 
@@ -60,16 +61,23 @@ public class Wave : MonoBehaviour
 
     public virtual void UpdateWave()
     {
+        if (!active) return;
         float progress = (currentProgress) / totalProgress;
         OnUpdate(progress);
         if (progress >= 1)
+        {
             EndWave();
+
+        }
         if (progress < 0)
+        {
             ResetWave();
+        }
     }
 
     public virtual void EndWave()
     {
+        active = false;
         if (nextWave == null)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

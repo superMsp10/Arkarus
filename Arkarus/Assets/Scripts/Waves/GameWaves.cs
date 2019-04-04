@@ -7,6 +7,12 @@ public class GameWaves : Wave
     public GhostSpawner spawner;
     public int iteration;
 
+
+    new public string waveName
+    {
+        get { return _waveName + " " + iteration; }
+    }
+
     private void Start()
     {
         spawner.GhostDeath += OnGhostDeath;

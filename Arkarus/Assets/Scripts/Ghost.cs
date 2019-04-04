@@ -103,18 +103,26 @@ public class Ghost : MonoBehaviour, Poolable
     {
         GameManager.Instance.spawner.SpawnGhostResidue(this);
         OnDeath(SoulCount);
-        thisPooler.disposeObject(this);
+        if (thisPooler != null)
+        {
+            thisPooler.disposeObject(this);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
     }
 
 
     private void FixedUpdate()
     {
         Vector3 x = Vector3.zero;
-        transform.position = Vector3.SmoothDamp(transform.position, finalPos, ref x, 1/moveSpeed);
+        transform.position = Vector3.SmoothDamp(transform.position, finalPos, ref x, 1 / moveSpeed);
         transform.rotation = Quaternion.Slerp(transform.rotation, finalRot, rotateSpeed * Time.deltaTime);
     }
 
-    void Poolable.reset(bool on)
+    public void reset(bool on)
     {
         gameObject.SetActive(on);
         if (on)

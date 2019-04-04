@@ -78,7 +78,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _fadeTime: 1.5
-    - _minAlpha: 0.2
+    - _minAlpha: 0.75
     m_Colors:
     - _Color: {r: 0.62128764, g: 0.3066038, b: 1, a: 1}
     - _Colour: {r: 0.43703538, g: 0.22748311, b: 0.6792453, a: 1}

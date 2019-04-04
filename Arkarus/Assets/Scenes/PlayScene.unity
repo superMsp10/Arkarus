@@ -1281,7 +1281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063fc296addbba74f91466e619359c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWave: {fileID: 1311521849}
+  startWave: {fileID: 603240407}
   currentWave: {fileID: 0}
   jar: {fileID: 1710330202}
   waveText: {fileID: 1278516348}
@@ -1640,11 +1640,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8303ed72693bd7547ad066b88821f935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   totalProgress: 2
   _currentProgress: 0
   _waveName: Turorial Shooting
   _startDescription: <color=white>Time to learn!</color>
-  _endDescription: <color=white>Time to learn!</color>
+  _endDescription: <color=white>Lesson Learned!</color>
   nextWave: {fileID: 669069820}
   bow: {fileID: 1967717212}
 --- !u!1 &669069818
@@ -1698,12 +1699,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d112aca8f8014e54abe51ffafe704e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalProgress: 0
+  active: 1
+  totalProgress: 2
   _currentProgress: 0
   _waveName: Real Ghost Test!
   _startDescription: <color=white>Time to learn!</color>
-  _endDescription: <color=white>Time to learn!</color>
+  _endDescription: <color=red>You destroyed innocent bedsheets!</color>
   nextWave: {fileID: 1912439253}
+  ghostIns: {fileID: 5367332282465330670, guid: 20ceccf5f457ac6419a1bdf4309b4e26,
+    type: 3}
 --- !u!1 &747382390
 GameObject:
   m_ObjectHideFlags: 0
@@ -12287,11 +12291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d32f20380bc0ad478a3496aaac8b6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   totalProgress: 10
   _currentProgress: 0
   _waveName: Tutorial Start
   _startDescription: <color=white>Time to learn!</color>
-  _endDescription: <color=white>Lesson Learned</color>
+  _endDescription: <color=red>No going back!</color>
   nextWave: {fileID: 1542848878}
   tutStartPanel: {fileID: 1311521845}
   gameStartWave: {fileID: 1912439253}
@@ -12629,11 +12634,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf2a04d7252b2146be8ef3328f3fabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   totalProgress: 10
   _currentProgress: 0
   _waveName: Tutorial Progress
   _startDescription: <color=white>Time to learn!</color>
-  _endDescription: <color=white>Time to learn!</color>
+  _endDescription: <color=white>Lesson Learned!</color>
   nextWave: {fileID: 603240407}
 --- !u!1 &1550796641
 GameObject:
@@ -14027,6 +14033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa2e9fed86615e4a823820537e4a84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   totalProgress: 10
   _currentProgress: 0
   _waveName: Wave
