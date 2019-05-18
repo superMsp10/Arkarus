@@ -28,6 +28,11 @@ public class GhostSpawner : MonoBehaviour
         InvokeRepeating("SpawnGhosts", 0f, ghostSpawnRate);
     }
 
+    public GhostPooler GetGhostPooler()
+    {
+        return (GhostPooler)ghostPooler;
+    }
+
     public void SpawnGhostResidue(Ghost dead)
     {
         GameObject g = ghostResiduePooler.getObject();

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Ghost : MonoBehaviour, Poolable
 {
 
@@ -39,11 +38,14 @@ public class Ghost : MonoBehaviour, Poolable
 
     void Start()
     {
+        reset(true);
     }
 
     private void Awake()
     {
-        playerCam = GameManager.Instance.FirstPersonCamera;
+        if (GameManager.Instance != null)
+            playerCam = GameManager.Instance.FirstPersonCamera;
+
     }
 
     void Update()

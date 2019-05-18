@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MetalFlash
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: ForceField
+  m_Shader: {fileID: 4800000, guid: 49de361fef5d6564fb8a1a86c4ce094e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -61,9 +61,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 1
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Metallic: 1
+    - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -72,6 +72,13 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
+    - _fadeTime: 2
+    - _maxAlpha: 0.2
+    - _maxGhostDistance: 5
+    - _maxSpotRadius: 0.02
+    - _minAlpha: 0.1
+    - _minSpotRadius: 0.001
+    - _spotRadius: 0.002
     m_Colors:
-    - _Color: {r: 0.034790397, g: 0.9652096, b: 0.2647464, a: 1}
-    - _EmissionColor: {r: 1, g: 0, b: 0.7607843, a: 1}
+    - _Color: {r: 0.9150943, g: 0.19424175, b: 0.2136267, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
