@@ -20,7 +20,7 @@ public class GhostSpawner : MonoBehaviour
     {
         fpCam = GameManager.Instance.FirstPersonCamera;
         ghostPooler = new GhostPooler(maxGhostCount, ghostPrefabs);
-        ghostResiduePooler = new Pooler(maxGhostCount / 4, ghostResiduePrefab);
+        ghostResiduePooler = new Pooler(Mathf.Max(maxGhostCount / 4, 1), ghostResiduePrefab);
     }
 
     public void StartSpawning()
@@ -59,33 +59,33 @@ public class GhostSpawner : MonoBehaviour
             //Offset Direction: Difference between camera center position and frustrum destination normalized
             // Final position = frustrum destination + offset direciton * randomMagnitude
             float r_depth = Random.Range(spawnRangeMin, spawnRangeMax);
-            Vector2 pointOnViewportEdge = Vector2.zero;
-            int r_side = Random.Range(0, 4);
-            float r_sideMagnitude = Random.Range(0.0f, 1f);
+            Vector2 pointOnViewportEdge = Vector2.one/2;
+            //int r_side = Random.Range(0, 4);
+            //float r_sideMagnitude = Random.Range(0.0f, 1f);
 
-            switch (r_side)
-            {
-                case 0:
-                    pointOnViewportEdge = new Vector2(r_sideMagnitude, 0);
-                    break;
-                case 1:
-                    pointOnViewportEdge = new Vector2(1, r_sideMagnitude);
-                    break;
-                case 2:
-                    pointOnViewportEdge = new Vector2(r_sideMagnitude, 1);
-                    break;
-                case 3:
-                    pointOnViewportEdge = new Vector2(0, r_sideMagnitude);
-                    break;
-                default:
-                    pointOnViewportEdge = Vector2.zero;
-                    break;
-            }
+            //switch (r_side)
+            //{
+            //    case 0:
+            //        pointOnViewportEdge = new Vector2(r_sideMagnitude, 0);
+            //        break;
+            //    case 1:
+            //        pointOnViewportEdge = new Vector2(1, r_sideMagnitude);
+            //        break;
+            //    case 2:
+            //        pointOnViewportEdge = new Vector2(r_sideMagnitude, 1);
+            //        break;
+            //    case 3:
+            //        pointOnViewportEdge = new Vector2(0, r_sideMagnitude);
+            //        break;
+            //    default:
+            //        pointOnViewportEdge = Vector2.zero;
+            //        break;
+            //}
 
 
             Vector3 frustrumDest = fpCam.ViewportPointToRay(pointOnViewportEdge).direction * r_depth;
-            Vector3 offset = (frustrumDest - fpCam.transform.forward * r_depth).normalized * frustrumDestOffest;
-            g.transform.position = frustrumDest + offset;
+            //Vector3 offset = (frustrumDest - fpCam.transform.forward * r_depth).normalized * frustrumDestOffest;
+            g.transform.position = frustrumDest;
             g.transform.parent = ghostsTransform;
         }
     }

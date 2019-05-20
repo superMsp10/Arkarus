@@ -20,6 +20,9 @@ public class Pooler
         GameObject ret = null;
         if (active.Count >= max)
         {
+
+            Debug.Log(active.Count);
+            Debug.Log(useable.Count);
             ret = active[0];
             active.Remove(ret);
             Poolable p = ret.GetComponent<Poolable>();

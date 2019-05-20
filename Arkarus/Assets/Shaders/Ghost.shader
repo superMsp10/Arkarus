@@ -15,7 +15,7 @@ Properties {
 
 SubShader {
 		Tags { "RenderType"="Transparent" "Queue"="Transparent" }
-		Blend SrcAlpha OneMinusSrcAlpha
+		Blend Off
 		LOD 200
 		
 		CGPROGRAM
