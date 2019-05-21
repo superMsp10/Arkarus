@@ -33,13 +33,13 @@ public class GhostSpawner : MonoBehaviour
         return (GhostPooler)ghostPooler;
     }
 
-    public void SpawnGhostResidue(Ghost dead)
+    public void SpawnGhostResidue(Ghost dead, bool animateSoul)
     {
         GameObject g = ghostResiduePooler.getObject();
         g.transform.parent = ghostsTransform;
         g.transform.position = dead.transform.position;
         g.transform.rotation = dead.transform.rotation;
-        g.GetComponent<GhostResidue>().CopyfromGhost(dead);
+        g.GetComponent<GhostResidue>().CopyfromGhost(dead, animateSoul);
     }
 
     public void SpawnGhosts()

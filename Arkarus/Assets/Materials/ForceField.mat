@@ -76,11 +76,11 @@ Material:
     - _extRadius: 0.9
     - _extSpotRadius: 0.1
     - _fadeTime: 2
-    - _maxAlpha: 0.8
+    - _maxAlpha: 1
     - _maxGhostDistance: 25
-    - _maxSpotRadius: 0.001
+    - _maxSpotRadius: 0.002
     - _minAlpha: 0.1
-    - _minSpotRadius: 0.0005
+    - _minSpotRadius: 0.001
     - _spotRadius: 0.002
     m_Colors:
     - _Color: {r: 0.9150943, g: 0.19424175, b: 0.2136267, a: 1}

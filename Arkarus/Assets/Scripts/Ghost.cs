@@ -103,8 +103,14 @@ public class Ghost : MonoBehaviour, Poolable
 
     public void OnTriggerCollide(Collider other)
     {
-        GameManager.Instance.spawner.SpawnGhostResidue(this);
-        OnDeath(SoulCount);
+        Die(true);
+    }
+
+    public void Die(bool giveSouls)
+    {
+        GameManager.Instance.spawner.SpawnGhostResidue(this, giveSouls);
+        if (giveSouls)
+            OnDeath(SoulCount);
         if (thisPooler != null)
         {
             thisPooler.disposeObject(this);
@@ -113,7 +119,6 @@ public class Ghost : MonoBehaviour, Poolable
         {
             Destroy(gameObject);
         }
-
     }
 
 

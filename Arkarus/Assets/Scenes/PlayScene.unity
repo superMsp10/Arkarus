@@ -7089,6 +7089,10 @@ MonoBehaviour:
   hitLayer:
     serializedVersion: 2
     m_Bits: 1024
+  exterminateRadius: 0.75
+  zapSoulCost: 1
+  zapObject: {fileID: 8494101010455208731, guid: ffbcf2cc2c4b32748aa77b1da07c05bf,
+    type: 3}
 --- !u!135 &1125344403
 SphereCollider:
   m_ObjectHideFlags: 0

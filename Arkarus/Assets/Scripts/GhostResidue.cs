@@ -11,6 +11,7 @@ public class GhostResidue : MonoBehaviour, Poolable
 
     public SpriteRenderer[] faceElements;
     SoulJar jar;
+    bool animateSoul;
 
 
     public GameObject pooledGameObject
@@ -34,7 +35,14 @@ public class GhostResidue : MonoBehaviour, Poolable
             }
             startTime = Time.time;
             particleSystem.Play();
-            soulParticleSystem.Play();
+            if (animateSoul)
+            {
+                soulParticleSystem.Play();
+            }
+            else
+            {
+                soulParticleSystem.Stop();
+            }
 
             Invoke("ClearResidue", clearTime);
         }
@@ -50,14 +58,15 @@ public class GhostResidue : MonoBehaviour, Poolable
     private void Update()
     {
         Vector3 x = Vector3.zero;
-        soulParticleSystem.transform.position = Vector3.SmoothDamp(soulParticleSystem.transform.position, jar.transform.position, ref x, Time.deltaTime * clearTime);
+        if (animateSoul)
+            soulParticleSystem.transform.position = Vector3.SmoothDamp(soulParticleSystem.transform.position, jar.transform.position, ref x, Time.deltaTime * clearTime);
         foreach (var item in faceElements)
         {
             item.color = Color.Lerp(Color.white, Color.clear, (Time.time - startTime) / clearTime);
         }
     }
 
-    public void CopyfromGhost(Ghost dead)
+    public void CopyfromGhost(Ghost dead, bool animateSoul)
     {
         transform.position = dead.mesh.position;
         transform.rotation = dead.mesh.rotation;
@@ -69,7 +78,7 @@ public class GhostResidue : MonoBehaviour, Poolable
         faceElements[0].transform.position = dead.eyeL.transform.position;
         faceElements[1].transform.position = dead.eyeR.transform.position;
         faceElements[2].transform.position = dead.mouth.transform.position;
-
+        this.animateSoul = animateSoul;
     }
 
     public void ClearResidue()
