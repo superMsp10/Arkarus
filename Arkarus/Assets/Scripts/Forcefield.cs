@@ -25,7 +25,9 @@ public class Forcefield : MonoBehaviour
         {
             Vector3 p = ghosts.active[i].transform.position;
             RaycastHit[] hits = Physics.RaycastAll(p, (transform.position - p), 500f, hitLayer);
-            if(hits.Length < 2)
+            if (hits.Length < 1)
+                continue;
+            if (hits.Length < 2)
             {
                 positions[i] = hits[0].point;
             }
