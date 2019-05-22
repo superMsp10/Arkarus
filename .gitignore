@@ -33,7 +33,6 @@ ExportedObj/
 sysinfo.txt
 
 # Builds
-*.apk
 *.unitypackage
 *.keystore
 Arkarus/Assets/Plugins/Android/proguard-user.txt
