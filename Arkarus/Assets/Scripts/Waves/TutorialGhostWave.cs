@@ -18,11 +18,6 @@ public class TutorialGhostWave : Wave
         g.OnDeath = SoulCount =>{ currentProgress+=1; };
         g.reset(true);
 
-        //o = Instantiate(ghostIns, frustrumDest, Quaternion.identity, GameManager.Instance.spawner.ghostsTransform);
-        //g = o.GetComponent<Ghost>();
-        //g.OnDeath = SoulCount => { currentProgress += 1; };
-        //g.reset(true);
-
     }
 
 

@@ -8,20 +8,20 @@ public class TutorialShootingWave : Wave
     public override void StartWave(WaveUpdate upd)
     {
         gameObject.SetActive(true);
-        base.StartWave(upd);
         bow.OnShoot += OnPlayerBowShoot;
+        base.StartWave(upd);
     }
 
     void OnPlayerBowShoot(float percentage)
     {
         currentProgress += percentage;
-        base.UpdateWave();
+        UpdateWave();
     }
 
     public override void EndWave()
     {
         gameObject.SetActive(false);
-        base.EndWave();
         bow.OnShoot -= OnPlayerBowShoot;
+        base.EndWave();
     }
 }

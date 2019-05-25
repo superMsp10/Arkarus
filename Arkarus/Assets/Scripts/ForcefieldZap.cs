@@ -56,6 +56,6 @@ public class ForcefieldZap : MonoBehaviour, Poolable
 
     public void ClearEffect()
     {
-        thisPooler.disposeObject(this);
+        thisPooler.DisposeObject(this);
     }
 }

@@ -28,6 +28,11 @@ public class GhostSpawner : MonoBehaviour
         InvokeRepeating("SpawnGhosts", 0f, ghostSpawnRate);
     }
 
+    public void ResetSpawns()
+    {
+        ghostPooler.DeactivateAll();
+    }
+
     public GhostPooler GetGhostPooler()
     {
         return (GhostPooler)ghostPooler;

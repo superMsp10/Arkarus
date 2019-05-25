@@ -4,28 +4,42 @@ using UnityEngine;
 
 public class GameWaves : Wave
 {
-    public GhostSpawner spawner;
-    public int iteration;
+    [SerializeField] GhostSpawner spawner;
+    [SerializeField] int iteration, arrowCost;
+    [SerializeField] Bow bow;
 
-
-    new public string waveName
+    public override string waveName
     {
-        get { return _waveName + " " + iteration; }
+        get
+        {
+            return _waveName + " " + iteration;
+        }
     }
 
-    private void Start()
+    void OnPlayerBowShoot(float percentage)
+    {
+        currentProgress -= arrowCost;
+        UpdateWave();
+    }
+
+    public override void BeforeWaveStart()
     {
         spawner.GhostDeath += OnGhostDeath;
+        bow.OnShoot += OnPlayerBowShoot;
+        IncreaseDifficulty();
     }
 
-    public override void StartWave( WaveUpdate upd)
+    void IncreaseDifficulty()
     {
         iteration++;
-        _waveName = "Game Wave " + iteration;
+        totalProgress += iteration;
         spawner.ghostSpawnRate += iteration;
         spawner.spawnRangeMax += iteration;
         spawner.spawnRangeMin += iteration;
+    }
 
+    public override void StartWave(WaveUpdate upd)
+    {
         base.StartWave(upd);
         spawner.StartSpawning();
     }
@@ -34,4 +48,20 @@ public class GameWaves : Wave
     {
         currentProgress += count;
     }
+
+    public override void RestartWave()
+    {
+        spawner.ResetSpawns();
+        base.RestartWave();
+    }
+
+    public override void EndWave()
+    {
+        spawner.GhostDeath -= OnGhostDeath;
+        bow.OnShoot -= OnPlayerBowShoot;
+        spawner.ResetSpawns();
+        base.EndWave();
+    }
+
+
 }

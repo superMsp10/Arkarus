@@ -113,7 +113,7 @@ public class Ghost : MonoBehaviour, Poolable
             OnDeath(SoulCount);
         if (thisPooler != null)
         {
-            thisPooler.disposeObject(this);
+            thisPooler.DisposeObject(this);
         }
         else
         {

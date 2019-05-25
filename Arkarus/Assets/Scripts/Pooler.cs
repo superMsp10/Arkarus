@@ -15,6 +15,15 @@ public class Pooler
         this.max = max;
     }
 
+    public void DeactivateAll()
+    {
+        GameObject[] old = active.ToArray();
+        foreach (GameObject item in old)
+        {
+            DisposeObject(item.GetComponent<Poolable>());
+        }
+    }
+
     public virtual GameObject getObject()
     {
         GameObject ret = null;
@@ -75,7 +84,7 @@ public class Pooler
         return Object.Instantiate(original);
     }
 
-    public virtual void disposeObject(Poolable p)
+    public virtual void DisposeObject(Poolable p)
     {
         active.Remove(p.pooledGameObject);
         useable.Add(p.pooledGameObject);

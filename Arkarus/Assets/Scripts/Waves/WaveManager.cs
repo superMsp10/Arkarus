@@ -13,6 +13,8 @@ public class WaveManager : MonoBehaviour
     public Camera effectCamera;
     public string startPreface = "Starting";
     public string endPreface = "Ending";
+    public string resetPreface = "Restarting";
+
     ParticleSystem.MainModule effectParticlesMain;
 
 
@@ -27,6 +29,7 @@ public class WaveManager : MonoBehaviour
 
     public void StartWave()
     {
+        currentWave.BeforeWaveStart();
         WaveStartAnimation();
         Invoke("_StartWave", 2f);
     }
@@ -47,6 +50,13 @@ public class WaveManager : MonoBehaviour
     void WaveEndAnimation()
     {
         waveText.text = string.Format("<size=100><color=#00ff00ff>{0}</color></size=100>\n-{1}-\n<size=50>{2}</size=50>", endPreface, currentWave.waveName, currentWave.endDescription);
+        StartAnimation();
+    }
+
+    public void WaveRestartAnimation()
+    {
+        Debug.Log("Restarting wave " + currentWave.waveName);
+        waveText.text = string.Format("<size=100><color=#00ff00ff>{0}</color></size=100>\n-{1}-\n<size=50>{2}</size=50>", resetPreface, currentWave.waveName, currentWave.resetDescription);
         StartAnimation();
     }
 

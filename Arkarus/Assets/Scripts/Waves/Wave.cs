@@ -9,13 +9,15 @@ public class Wave : MonoBehaviour
     public WaveUpdate OnUpdate;
     public bool active = true;
 
-    public float totalProgress, _currentProgress;
-    public string _waveName = "Wave",
+    public float totalProgress, _currentProgress, startProgress = 5;
+    [SerializeField] protected string _waveName = "Wave",
         _startDescription = "<color=white>Be Aware!</color>",
-        _endDescription = "<color=red>You destroyed innocent bedsheets!</color>";
+        _endDescription = "<color=red>You destroyed innocent bedsheets!</color>",
+        _resetDescription = "<color=black>Progress reached xero!</color>";
 
 
-    public string waveName
+
+    public virtual string waveName
     {
         get { return _waveName; }
     }
@@ -28,6 +30,11 @@ public class Wave : MonoBehaviour
     public string endDescription
     {
         get { return _endDescription; }
+    }
+
+    public string resetDescription
+    {
+        get { return _resetDescription; }
     }
 
 
@@ -46,6 +53,11 @@ public class Wave : MonoBehaviour
 
     public Wave nextWave;
 
+    public virtual void BeforeWaveStart()
+    {
+
+    }
+
     public virtual void StartWave( WaveUpdate upd)
     {
         OnUpdate = upd;
@@ -55,14 +67,21 @@ public class Wave : MonoBehaviour
 
     public virtual void ResetWave()
     {
-        currentProgress = 0;
+        currentProgress = startProgress;
         //Automatically updates wave through currentProgress param
+    }
+
+    public virtual void RestartWave()
+    {
+        GameManager.Instance.waves.WaveRestartAnimation();
+        ResetWave();
     }
 
     public virtual void UpdateWave()
     {
         if (!active) return;
         float progress = (currentProgress) / totalProgress;
+
         OnUpdate(progress);
         if (progress >= 1)
         {
@@ -71,7 +90,7 @@ public class Wave : MonoBehaviour
         }
         if (progress < 0)
         {
-            ResetWave();
+            RestartWave();
         }
     }
 

@@ -83,6 +83,6 @@ public class GhostResidue : MonoBehaviour, Poolable
 
     public void ClearResidue()
     {
-        thisPooler.disposeObject(this);
+        thisPooler.DisposeObject(this);
     }
 }

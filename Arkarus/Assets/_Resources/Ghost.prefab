@@ -57,7 +57,7 @@ MonoBehaviour:
   - {fileID: 21300028, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
   - {fileID: 21300032, guid: c9fb4ab38ade5544d8f00709afcda18c, type: 3}
   mesh: {fileID: 4935659710915404594}
-  SoulCount: 1
+  SoulCount: 2
   moveRefreshTime: 1
   moveSpeed: 1
   rotateSpeed: 1

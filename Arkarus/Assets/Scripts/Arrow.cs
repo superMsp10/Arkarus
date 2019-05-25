@@ -48,7 +48,7 @@ public class Arrow : MonoBehaviour, Poolable
 
     void arrowRecycle()
     {
-        thisPooler.disposeObject(this);
+        thisPooler.DisposeObject(this);
     }
 
 }
