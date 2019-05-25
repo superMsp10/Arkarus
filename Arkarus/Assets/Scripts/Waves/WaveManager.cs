@@ -73,6 +73,7 @@ public class WaveManager : MonoBehaviour
     {
         waveText.gameObject.SetActive(false);
         effectParticlesMain.loop = false;
+        effectParticles.Stop();
         effectCamera.enabled = false;
     }
 
