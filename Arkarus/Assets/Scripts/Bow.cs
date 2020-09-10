@@ -123,7 +123,7 @@ public class Bow : MonoBehaviour
             {
                 Debug.Log("screenPercent " + screenPercent * 100);
 
-                if (diff.x > 0 && diff.y < 0 && screenPercent > .2)
+                if (screenPercent > .2)
                 {
                     OnShoot(screenPercent);
                 }
