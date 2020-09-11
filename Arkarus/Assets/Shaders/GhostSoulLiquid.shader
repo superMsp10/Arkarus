@@ -63,11 +63,11 @@ Shader "Custom/GhostSoulLiquid"{
 		};
 
 		void surf (Input IN, inout SurfaceOutput o) {
-			float3 flowDir = tex2D(_FlowMap, IN.uv_FlowMap) * 2 - 1;
-			flowDir *= _Speed;
-			float3 noise = tex2D(_NoiseMap, IN.uv_FlowMap) * flowDir;
+			// float3 flowDir = tex2D(_FlowMap, IN.uv_FlowMap) * 2 - 1;
+			// flowDir *= _Speed;
+			float3 noise = tex2D(_NoiseMap, IN.uv_FlowMap);
 			
-			float phase = _Time[1] / _Cycle + noise.r * _SinTime/_CosTime;
+			float phase = _Time[1] / _Cycle + noise.r * _SinTime;
 			float f = frac(phase);
 
 			float3 t1 = tex2D (_MainTex, IN.uv_MainTex);
@@ -79,7 +79,8 @@ Shader "Custom/GhostSoulLiquid"{
 				f = 2.0f * f;
 			
 			o.Normal = 1;
-    		o.Albedo = lerp(t1,t2,f) * lerp(_c1,_c2,f);
+    		// o.Albedo = lerp(t1,t2,f) * lerp(_c1,_c2,f);
+			o.Albedo = lerp(_c1,_c2,f);
     		o.Emission =  o.Albedo;
 
 		}
