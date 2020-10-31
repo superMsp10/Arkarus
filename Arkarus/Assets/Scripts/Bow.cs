@@ -121,7 +121,7 @@ public class Bow : MonoBehaviour
         {
             if (touch.phase == TouchPhase.Ended)
             {
-                Debug.Log("screenPercent " + screenPercent * 100);
+                //Debug.Log("screenPercent " + screenPercent * 100);
 
                 if (screenPercent > .2)
                 {

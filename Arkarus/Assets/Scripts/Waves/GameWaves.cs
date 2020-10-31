@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameWaves : Wave
 {
     [SerializeField] GhostSpawner spawner;
-    [SerializeField] int iteration, arrowCost;
+    [SerializeField] int iteration, arrowCost, coins;
     [SerializeField] Bow bow;
 
     public override string waveName
@@ -16,9 +16,20 @@ public class GameWaves : Wave
         }
     }
 
+    private void Awake()
+    {
+        coins = PlayerPrefs.GetInt("score");
+    }
+
+    private void OnDestroy()
+    {
+        PlayerPrefs.SetInt("score", coins);
+        PlayerPrefs.Save();
+    }
+
     void OnPlayerBowShoot(float percentage)
     {
-        currentProgress -= arrowCost;
+        //currentProgress -= arrowCost;
         UpdateWave();
     }
 
@@ -32,7 +43,8 @@ public class GameWaves : Wave
     void IncreaseDifficulty()
     {
         iteration++;
-        totalProgress += iteration;
+        coins += (int)totalProgress;
+        totalProgress++;
         spawner.ghostSpawnRate += iteration;
     }
 
@@ -40,8 +52,8 @@ public class GameWaves : Wave
     {
         base.StartWave(upd);
 
-        Debug.Log((int)(totalProgress - currentProgress));
-        spawner.StartSpawning((int)(totalProgress - currentProgress));
+        Debug.Log((int)(totalProgress));
+        spawner.StartSpawning((int)(totalProgress));
     }
 
     public void OnGhostDeath(float count)

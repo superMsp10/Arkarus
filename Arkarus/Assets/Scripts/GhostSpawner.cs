@@ -55,13 +55,16 @@ public class GhostSpawner : MonoBehaviour
     public IEnumerator SpawnGhosts(int spawnAmount)
     {
         for (int i = 0; i < spawnAmount; i++)
-            if (ghostPooler.active.Count < maxGhostCount)
-            {
-                GameObject g = ghostPooler.getObject();
-                g.transform.position = portal.transform.position;
-                g.transform.parent = ghostsTransform;
-                yield return new WaitForSeconds(1f);
-            }
+        {
+
+            Debug.Log("Spawn " + i);
+            GameObject g = ghostPooler.getObject();
+            Debug.Log(g);
+            g.SetActive(true);
+            g.transform.position = portal.transform.position;
+            g.transform.parent = ghostsTransform;
+            yield return new WaitForSeconds(1f);
+        }
         portal.gameObject.SetActive(false);
     }
 }

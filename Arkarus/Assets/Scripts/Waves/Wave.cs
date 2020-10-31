@@ -9,7 +9,7 @@ public class Wave : MonoBehaviour
     public WaveUpdate OnUpdate;
     public bool active = true;
 
-    public float totalProgress, _currentProgress, startProgress = 5;
+    public float totalProgress, _currentProgress;
     [SerializeField] protected string _waveName = "Wave",
         _startDescription = "<color=white>Be Aware!</color>",
         _endDescription = "<color=red>You destroyed innocent bedsheets!</color>",
@@ -67,7 +67,7 @@ public class Wave : MonoBehaviour
 
     public virtual void ResetWave()
     {
-        currentProgress = startProgress;
+        //currentProgress = 0;
         //Automatically updates wave through currentProgress param
     }
 
@@ -103,6 +103,7 @@ public class Wave : MonoBehaviour
         }
         else
         {
+            currentProgress = 0;
             GameManager.Instance.waves.TransitionToNewWave(nextWave);
         }
     }

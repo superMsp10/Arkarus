@@ -48,7 +48,7 @@
             {
                 float2 UV = i.uv;
                 float2 Center = float2(1, 1)/2;
-                float Strength = 10 * sin(_Time * 20);
+                float Strength = 10 * (sin(_Time * 20)/2 + 0.5);
                 float2 Offset = 0;
                 float2 delta = UV - Center;
                 float angle = Strength * length(delta) + _Time*20;
