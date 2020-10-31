@@ -93,7 +93,7 @@ public class Ghost : MonoBehaviour, Poolable
     {
         while (true)
         {
-            Vector3 rand = Random.onUnitSphere;
+            Vector3 rand = Random.onUnitSphere * 5;
             Vector3 deltaPlayer = playerCam.transform.position - transform.position;
             finalPos = Vector3.MoveTowards(transform.position, rand + deltaPlayer, 1f);
             finalRot = Quaternion.LookRotation((playerCam.transform.position - transform.position) + rand);

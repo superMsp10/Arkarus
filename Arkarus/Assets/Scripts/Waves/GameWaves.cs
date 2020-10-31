@@ -34,14 +34,14 @@ public class GameWaves : Wave
         iteration++;
         totalProgress += iteration;
         spawner.ghostSpawnRate += iteration;
-        spawner.spawnRangeMax += iteration;
-        spawner.spawnRangeMin += iteration;
     }
 
     public override void StartWave(WaveUpdate upd)
     {
         base.StartWave(upd);
-        spawner.StartSpawning();
+
+        Debug.Log((int)(totalProgress - currentProgress));
+        spawner.StartSpawning((int)(totalProgress - currentProgress));
     }
 
     public void OnGhostDeath(float count)
