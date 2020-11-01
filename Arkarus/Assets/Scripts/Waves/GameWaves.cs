@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameWaves : Wave
@@ -7,6 +8,8 @@ public class GameWaves : Wave
     [SerializeField] GhostSpawner spawner;
     [SerializeField] int iteration, arrowCost, coins;
     [SerializeField] Bow bow;
+
+    public TextMeshProUGUI text;
 
     public override string waveName
     {
@@ -19,6 +22,7 @@ public class GameWaves : Wave
     private void Awake()
     {
         coins = PlayerPrefs.GetInt("score");
+        text.text = coins.ToString();
     }
 
     private void OnDestroy()
@@ -44,6 +48,7 @@ public class GameWaves : Wave
     {
         iteration++;
         coins += (int)totalProgress;
+        text.text = coins.ToString();
         totalProgress++;
         spawner.ghostSpawnRate += iteration;
     }
